@@ -1515,6 +1515,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dedent@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "dedent@npm:1.5.3"
+  peerDependencies:
+    babel-plugin-macros: ^3.1.0
+  peerDependenciesMeta:
+    babel-plugin-macros:
+      optional: true
+  checksum: d94bde6e6f780be4da4fd760288fcf755ec368872f4ac5218197200d86430aeb8d90a003a840bff1c20221188e3f23adced0119cb811c6873c70d0ac66d12832
+  languageName: node
+  linkType: hard
+
 "deep-eql@npm:^5.0.1":
   version: 5.0.2
   resolution: "deep-eql@npm:5.0.2"
@@ -4580,6 +4592,7 @@ __metadata:
   resolution: "recipe-db@workspace:packages/recipe-db"
   dependencies:
     "@types/node": "npm:^22.10.2"
+    dedent: "npm:^1.5.3"
     execa: "npm:^9.5.2"
     file-fixture-factory: "npm:^4.0.1"
     mddb: "npm:^0.9.5"
