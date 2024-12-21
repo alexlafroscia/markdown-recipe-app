@@ -3,13 +3,13 @@
 
 	let { data }: { data: PageData } = $props();
 
-	let recipes = $derived(data.recipes);
+	let recipe = $derived(data.recipe);
 </script>
 
+<h2>Ingredients</h2>
+
 <ul>
-	{#each recipes as recipe}
-		<li>
-			<a href="/recipe/{recipe.id}">{recipe.title}</a>
-		</li>
+	{#each recipe.ingredients as ingredient}
+		<li>{ingredient}</li>
 	{/each}
 </ul>

@@ -673,6 +673,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node21@npm:^21.0.3":
+  version: 21.0.3
+  resolution: "@tsconfig/node21@npm:21.0.3"
+  checksum: d6d497b0a2f03d3bed2e4467943426cd357600454e0498823a7242531d9d90945a762bf9eb062fffcc17354bcc78e1d03677d85cb8e3df6a1267589885c93cf0
+  languageName: node
+  linkType: hard
+
 "@types/braces@npm:*":
   version: 3.0.4
   resolution: "@types/braces@npm:3.0.4"
@@ -4591,6 +4598,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "recipe-db@workspace:packages/recipe-db"
   dependencies:
+    "@tsconfig/node21": "npm:^21.0.3"
     "@types/node": "npm:^22.10.2"
     dedent: "npm:^1.5.3"
     execa: "npm:^9.5.2"

@@ -2,7 +2,7 @@ import { MarkdownDB } from 'mddb';
 
 import { buildIndex } from './build-index';
 import { createRecipe } from './recipe';
-import type { File, Options } from './types';
+import type { Options } from './types';
 
 export class RecipeDB {
 	private client: MarkdownDB;
@@ -26,17 +26,17 @@ export class RecipeDB {
 		return new RecipeDB(client);
 	}
 
-	#loadRecipes: Promise<File[]> | undefined;
+	async withId(id: string) {
+		const file = await this.client.getFileById(id);
+
+		return file ? createRecipe(file) : null;
+	}
 
 	async recipes() {
-		if (!this.#loadRecipes) {
-			this.#loadRecipes = this.client.getFiles({
-				folder: 'Recipes',
-				extensions: ['md'],
-			});
-		}
-
-		const files = await this.#loadRecipes;
+		const files = await this.client.getFiles({
+			folder: 'Recipes',
+			extensions: ['md'],
+		});
 
 		return files.map((file) => createRecipe(file));
 	}

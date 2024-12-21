@@ -1,10 +1,23 @@
+import { getSteps } from '../util/get-steps.js';
+
 function isIngredient(node) {
 	return node.children.some(
 		(child) => child.type === 'text' && child.value.toLowerCase() === 'ingredients',
 	);
 }
 
-export function addIngredients(fileInfo, ast) {
+function getListContents(ast) {
+	return ast.children.map(
+		(child) =>
+			// List item
+			// Value
+			// Text
+			// Paragraph
+			child.children[0].children[0].value,
+	);
+}
+
+function getIngredientsFromHeading(ast) {
 	const headerNode = ast.children.find((node) => node.type === 'heading' && isIngredient(node));
 
 	if (headerNode) {
@@ -12,19 +25,21 @@ export function addIngredients(fileInfo, ast) {
 		const maybeList = ast.children[headerIndex + 1];
 
 		if (maybeList && maybeList.type === 'list') {
-			fileInfo.ingredients = JSON.stringify(
-				maybeList.children.map(
-					(child) =>
-						// List item
-						// Value
-						// Text
-						// Paragraph
-						child.children[0].children[0].value,
-				),
-			);
-			return;
+			return getListContents(maybeList);
 		}
 	}
+}
 
-	fileInfo.ingredients = [];
+function getIngredientsFromSteps(steps) {
+	return steps.flatMap((step) => getListContents(step[0]));
+}
+
+export function addIngredients(fileInfo, ast) {
+	const steps = getSteps(ast);
+
+	if (steps) {
+		fileInfo.ingredients = getIngredientsFromSteps(steps) ?? [];
+	} else {
+		fileInfo.ingredients = getIngredientsFromHeading(ast) ?? [];
+	}
 }

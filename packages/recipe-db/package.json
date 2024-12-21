@@ -7,6 +7,7 @@
 		"mddb": "^0.9.5"
 	},
 	"devDependencies": {
+		"@tsconfig/node21": "^21.0.3",
 		"@types/node": "^22.10.2",
 		"dedent": "^1.5.3",
 		"file-fixture-factory": "^4.0.1"
