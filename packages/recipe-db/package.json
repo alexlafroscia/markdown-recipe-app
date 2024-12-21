@@ -1,0 +1,13 @@
+{
+	"name": "recipe-db",
+	"type": "module",
+	"exports": "./src/index.ts",
+	"dependencies": {
+		"execa": "^9.5.2",
+		"mddb": "^0.9.5"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.2",
+		"file-fixture-factory": "^4.0.1"
+	}
+}
