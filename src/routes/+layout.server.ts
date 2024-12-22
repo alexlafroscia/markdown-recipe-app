@@ -1,8 +1,8 @@
 import { client } from '$lib/server/recipe-db';
 
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: LayoutServerLoad = async () => {
 	return {
 		recipes: await client.recipes(),
 	};

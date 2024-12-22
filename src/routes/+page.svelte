@@ -1,15 +1,3 @@
-<script lang="ts">
-	import type { PageData } from './$types';
-
-	let { data }: { data: PageData } = $props();
-
-	let recipes = $derived(data.recipes);
-</script>
-
-<ul>
-	{#each recipes as recipe}
-		<li>
-			<a href="/recipe/{recipe.id}">{recipe.title}</a>
-		</li>
-	{/each}
-</ul>
+<div>
+	<p>Select a Recipe</p>
+</div>

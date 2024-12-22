@@ -1,3 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* CSS Variables */
+:root {
+	--cream: #f8e8c1; /* Light Background */
+	--rich-chocolate-brown: #4b3c31; /* Dark Text */
+	--burnt-orange: #d76d3d; /* Primary Accent */
+	--muted-olive-green: #7c7b5e; /* Secondary Accent */
+}
