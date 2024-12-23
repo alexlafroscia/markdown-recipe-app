@@ -31,3 +31,4 @@ vite.config.ts.timestamp-*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+*storybook.log
