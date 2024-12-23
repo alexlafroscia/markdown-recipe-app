@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Root from '$lib/components/ast/Root.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -6,10 +7,6 @@
 	let recipe = $derived(data.recipe);
 </script>
 
-<h2>Ingredients</h2>
-
-<ul>
-	{#each recipe.ingredients as ingredient}
-		<li>{ingredient}</li>
-	{/each}
-</ul>
+<div>
+	<Root node={recipe.fullAST} />
+</div>
