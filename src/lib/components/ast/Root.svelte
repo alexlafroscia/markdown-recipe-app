@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { Root } from 'mdast';
 
-	import Heading, { isHeading } from './Heading.svelte';
-	import Paragraph, { isParagraph } from './Paragraph.svelte';
+	import Content from './Content.svelte';
 
 	interface Props {
 		node: Root;
@@ -13,9 +12,5 @@
 </script>
 
 {#each node.children as child}
-	{#if isHeading(child)}
-		<Heading node={child} />
-	{:else if isParagraph(child)}
-		<Paragraph node={child} />
-	{/if}
+	<Content node={child} />
 {/each}
