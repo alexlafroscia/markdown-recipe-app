@@ -24,7 +24,9 @@
 		{/each}
 	</ul>
 
-	{@render children()}
+	<div class="detail">
+		{@render children()}
+	</div>
 </div>
 
 <style>
@@ -42,5 +44,9 @@
 		padding: 0 1em;
 		max-width: 40%;
 		border-right: 1px solid var(--rich-chocolate-brown);
+	}
+
+	.detail {
+		overflow: auto;
 	}
 </style>
