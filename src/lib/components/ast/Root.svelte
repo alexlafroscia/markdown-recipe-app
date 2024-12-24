@@ -12,8 +12,6 @@
 	let node = $derived(props.node);
 </script>
 
-{@debug node}
-
 {#each node.children as child}
 	{#if isHeading(child)}
 		<Heading node={child} />
