@@ -6,6 +6,7 @@ export interface Recipe {
 	title: string;
 	ingredients: Ingredient[];
 	fullAST: Root;
+	frontmatter: Record<string, any>;
 }
 
 export interface Ingredient {}
@@ -16,5 +17,6 @@ export function createRecipe(file: File): Recipe {
 		title: file.title,
 		ingredients: JSON.parse(file.ingredients),
 		fullAST: JSON.parse(file.fullAST),
+		frontmatter: file.metadata ?? {},
 	};
 }
