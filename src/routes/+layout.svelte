@@ -35,18 +35,46 @@
 		color: var(--rich-chocolate-brown);
 
 		display: flex;
-		gap: 1em;
 		height: 100vh;
+
+		/* By default, a `.detail` with `.detail-empty` is hidden */
+		&:has(:global(.detail-empty)) .detail {
+			display: none;
+		}
+
+		/* By default, a list` with `.detail-full` is hidden */
+		&:has(:global(.detail-full)) ul {
+			display: none;
+		}
+
+		@media (min-width: 600px) {
+			&:has(:global(.detail-empty)) .detail {
+				display: block;
+			}
+
+			&:has(:global(.detail-full)) ul {
+				display: block;
+			}
+		}
 	}
 
 	ul {
 		overflow-y: auto;
 		padding: 0 1em;
-		max-width: 40%;
-		border-right: 1px solid var(--rich-chocolate-brown);
+		width: 100%;
+
+		@media (min-width: 600px) {
+			border-right: 1px solid var(--rich-chocolate-brown);
+			max-width: 35%;
+		}
+
+		@media (min-width: 800px) {
+			max-width: 40%;
+		}
 	}
 
 	.detail {
 		overflow: auto;
+		padding: 0 1em;
 	}
 </style>
