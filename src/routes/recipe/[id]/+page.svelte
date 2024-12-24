@@ -13,3 +13,9 @@
 <div>
 	<Root node={recipeAST} />
 </div>
+
+<style>
+	div {
+		white-space: pre-line;
+	}
+</style>
