@@ -10,7 +10,7 @@
 	let recipeAST = $derived(removeFrontmatter(recipe.fullAST));
 </script>
 
-<div>
+<div class="prose">
 	<Root node={recipeAST} />
 </div>
 
