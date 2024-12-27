@@ -22,7 +22,7 @@
 	"dependencies": {
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.15",
-		"glob-fs": "^0.1.7",
+		"fast-glob": "^3.3.2",
 		"remark-frontmatter": "^5.0.0",
 		"remark-parse": "^11.0.0",
 		"unified": "^11.0.5",
@@ -55,6 +55,6 @@
 		"vitest": "^2.0.4"
 	},
 	"volta": {
-		"node": "23.5.0"
+		"node": "21.7.3"
 	}
 }
