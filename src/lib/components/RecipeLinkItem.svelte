@@ -1,10 +1,15 @@
 <script lang="ts">
 	import type { Recipe } from '$lib/recipe';
 
-	export let recipe: Recipe;
+	interface Props {
+		recipe: Recipe;
+		active?: boolean;
+	}
+
+	const { recipe, active = false }: Props = $props();
 </script>
 
-<a href="/recipe/{recipe.name}">
+<a href="/recipe/{recipe.name}" class:active>
 	<span class="image"></span>
 
 	<b>{recipe.name}</b>
@@ -13,26 +18,21 @@
 <style>
 	a {
 		display: grid;
-		grid-template-areas:
-			'image name'
-			'image description';
 		grid-template-columns: 40px 1fr;
 		gap: 0.5em;
 
+		border-radius: 5px;
 		padding: 1em;
 
-		/* Smooth transition */
-		transition:
-			transform 0.3s ease,
-			box-shadow 0.3s ease;
+		transition: background-color 0.2s ease;
+	}
+
+	.active {
+		background-color: color-mix(in srgb, var(--cream) 90%, black);
 	}
 
 	a:hover {
-		/* Move up and scale slightly */
-		transform: translateY(-2px) scale(1.05);
-
-		/* Shadow for depth */
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+		background-color: color-mix(in srgb, var(--cream) 85%, black);
 	}
 
 	b {

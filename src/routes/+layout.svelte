@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { LayoutData } from './$types';
+
+	import { page } from '$app/state';
 	import RecipeLinkItem from '$lib/components/RecipeLinkItem.svelte';
 
 	import '../app.css';
@@ -13,13 +15,14 @@
 	let { children, data }: Props = $props();
 
 	let recipes = $derived(data.recipes);
+	let selectedRecipe = $derived(page.data.recipe);
 </script>
 
 <div class="list-and-detail">
 	<ul>
 		{#each recipes as recipe}
 			<li>
-				<RecipeLinkItem {recipe} />
+				<RecipeLinkItem {recipe} active={recipe.name === selectedRecipe.name} />
 			</li>
 		{/each}
 	</ul>
@@ -53,14 +56,18 @@
 			}
 
 			&:has(:global(.detail-full)) ul {
-				display: block;
+				display: flex;
 			}
 		}
 	}
 
 	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+
 		overflow-y: auto;
-		padding: 0 1em;
+		padding: 0.5em 1em;
 		width: 100%;
 
 		@media (min-width: 600px) {
