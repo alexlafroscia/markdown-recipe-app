@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { Recipe } from 'recipe-db';
+	import type { Recipe } from '$lib/recipe';
 
 	export let recipe: Recipe;
 </script>
 
-<a href="/recipe/{recipe.id}">
+<a href="/recipe/{recipe.name}">
 	<span class="image"></span>
 
-	<b>{recipe.title}</b>
+	<b>{recipe.name}</b>
 </a>
 
 <style>

@@ -1,9 +1,10 @@
-import { client } from '$lib/server/recipe-db';
-
 import type { LayoutServerLoad } from './$types';
+import { db } from '$lib/server/recipe-db';
 
 export const load: LayoutServerLoad = async () => {
+	const data = db.all();
+
 	return {
-		recipes: await client.recipes(),
+		recipes: data,
 	};
 };

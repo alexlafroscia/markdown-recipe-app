@@ -1,9 +1,0 @@
-{
-	"extends": "@tsconfig/node21/tsconfig.json",
-
-	"compilerOptions": {
-		"module": "Preserve",
-		"moduleResolution": "bundler",
-		"verbatimModuleSyntax": true
-	}
-}
