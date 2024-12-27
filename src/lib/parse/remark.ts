@@ -11,7 +11,7 @@ export interface ParseResult {
 	frontmatter: Frontmatter;
 }
 
-export function parse(doc: Buffer): ParseResult {
+export function parse(doc: Buffer | string): ParseResult {
 	const ast = parser.parse(doc);
 
 	return {

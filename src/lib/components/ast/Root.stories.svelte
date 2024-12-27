@@ -1,10 +1,14 @@
-<script module>
+<script lang="ts" module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import dedent from 'dedent';
-	import { processAST } from 'mddb/dist/src/lib/parseFile';
+	import { parse as parseWithFrontmatter } from '$lib/parse';
 
 	import DomPrinter from '../DOMPrinter.svelte';
 	import Root from './Root.svelte';
+
+	function parse(doc: string) {
+		return parseWithFrontmatter(doc).ast;
+	}
 
 	const { Story } = defineMeta({
 		title: 'Remark AST Root',
@@ -22,12 +26,12 @@
 
 <Story name="Heading">
 	<DomPrinter>
-		<Root node={processAST(WITH_HEADING)} />
+		<Root node={parse(WITH_HEADING)} />
 	</DomPrinter>
 </Story>
 
 <Story name="Paragraph">
 	<DomPrinter>
-		<Root node={processAST(WITH_PARAGRAPH)} />
+		<Root node={parse(WITH_PARAGRAPH)} />
 	</DomPrinter>
 </Story>
