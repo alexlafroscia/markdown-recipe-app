@@ -7,7 +7,7 @@ export { remarkFrontmatter };
 
 export type Frontmatter = Record<string, any>;
 
-export function matter(doc: Root): Record<string, any> {
+export function matter(doc: Root): Frontmatter {
 	const node = find<Yaml>(doc, { type: 'yaml' });
 
 	if (!node) {
