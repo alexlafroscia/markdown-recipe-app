@@ -1,1 +1,1 @@
-export { parse, type ParseResult } from './remark';
+export * from './remark';

@@ -1,10 +1,12 @@
 <script lang="ts" module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import dedent from 'dedent';
-	import { parse as parseWithFrontmatter } from '$lib/parse';
+	import { makeParser } from '$lib/parse';
 
 	import DomPrinter from '../DOMPrinter.svelte';
 	import Root from './Root.svelte';
+
+	const parseWithFrontmatter = makeParser();
 
 	function parse(doc: string) {
 		return parseWithFrontmatter(doc).ast;

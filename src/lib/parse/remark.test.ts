@@ -1,8 +1,9 @@
 import { expect, test } from 'vitest';
 import dedent from 'dedent';
-import { parse } from './remark';
+import { makeParser } from './remark';
 
 test('basic markdown', () => {
+	const parse = makeParser();
 	const { ast, frontmatter } = parse(dedent`
         # Heading 1
 
@@ -14,6 +15,7 @@ test('basic markdown', () => {
 });
 
 test('frontmatter extraction', () => {
+	const parse = makeParser();
 	const { ast, frontmatter } = parse(dedent`
         ---
         foo: bar

@@ -5,11 +5,15 @@ import glob from 'fast-glob';
 
 import { zip2 } from '$lib/array';
 import { RecipeDB } from '$lib/recipe';
-import { parse } from '$lib/parse';
+import { makeParser, type MakeParserOptions } from '$lib/parse';
 
 import { VAULT_PATH } from '$env/static/private';
 
-export async function makeDB(vaultPath: string) {
+export interface MakeDBOptions extends Required<MakeParserOptions> {}
+
+export async function makeDB(options: MakeDBOptions) {
+	const { vaultPath } = options;
+
 	const fullFilePaths = await glob(`${vaultPath}/Recipes/**/*.md`);
 	const fileContents = await Promise.all(
 		fullFilePaths.map((path) => {
@@ -17,6 +21,9 @@ export async function makeDB(vaultPath: string) {
 		}),
 	);
 
+	const parse = makeParser({
+		vaultPath,
+	});
 	const parsedFiles = fileContents.map((fileContent) => parse(fileContent));
 
 	return new RecipeDB(
@@ -36,4 +43,6 @@ export async function makeDB(vaultPath: string) {
 	);
 }
 
-export const db = await makeDB(VAULT_PATH);
+export const db = await makeDB({
+	vaultPath: VAULT_PATH,
+});
