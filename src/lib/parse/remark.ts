@@ -2,6 +2,7 @@ import type { Root } from 'mdast';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 
+import { remarkCallout, makeOptions as makeCalloutOptions } from './callout';
 import { type Frontmatter, remarkFrontmatter, matter } from './frontmatter';
 import {
 	remarkWikiLink,
@@ -19,6 +20,7 @@ export interface MakeParserOptions extends Partial<MakeRemarkWikiLinkOptionsOpti
 export function makeParser(options: MakeParserOptions = {}) {
 	const parser = unified()
 		.use(remarkParse)
+		.use(remarkCallout, makeCalloutOptions())
 		.use(remarkFrontmatter, ['yaml'])
 		.use(
 			remarkWikiLink,
@@ -35,11 +37,12 @@ export function makeParser(options: MakeParserOptions = {}) {
 		);
 
 	return function parse(doc: Buffer | string): ParseResult {
-		const ast = parser.parse(doc);
+		const parsedAST = parser.parse(doc);
+		const transformedAST = parser.runSync(parsedAST);
 
 		return {
-			ast,
-			frontmatter: matter(ast),
+			ast: transformedAST,
+			frontmatter: matter(transformedAST),
 		};
 	};
 }
