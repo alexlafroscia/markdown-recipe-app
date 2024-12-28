@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import dedent from 'dedent';
+
 import { makeParser } from './remark';
 
 test('basic markdown', () => {

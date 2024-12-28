@@ -5,11 +5,16 @@ import glob from 'fast-glob';
 
 import { zip2 } from '$lib/array';
 import { RecipeDB } from '$lib/recipe';
-import { makeParser, type MakeParserOptions } from '$lib/parse';
+import { makeParser } from '$lib/parse';
 
 import { VAULT_PATH } from '$env/static/private';
 
-export interface MakeDBOptions extends Required<MakeParserOptions> {}
+export interface MakeDBOptions {
+	/**
+	 * The location of the Obsidian vault
+	 */
+	vaultPath: string;
+}
 
 export async function makeDB(options: MakeDBOptions) {
 	const { vaultPath } = options;
@@ -22,7 +27,11 @@ export async function makeDB(options: MakeDBOptions) {
 	);
 
 	const parse = makeParser({
-		vaultPath,
+		permalinks: fullFilePaths.map((fullFilePath) => fullFilePath.replace(options.vaultPath, '')),
+
+		href(permalink) {
+			return permalink.includes('Recipes/') ? { type: 'internal' } : { type: 'external' };
+		},
 	});
 	const parsedFiles = fileContents.map((fileContent) => parse(fileContent));
 
