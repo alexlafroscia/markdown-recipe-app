@@ -12,8 +12,18 @@ interface CalloutData {
 	open?: boolean;
 }
 
+interface CalloutTitleData {
+	dataCalloutTitle: boolean;
+}
+
 declare module 'mdast' {
 	interface BlockquoteData {
+		hName?: string;
 		hProperties?: CalloutData;
+	}
+
+	interface ParagraphData {
+		hName?: string;
+		hProperties?: CalloutTitleData;
 	}
 }

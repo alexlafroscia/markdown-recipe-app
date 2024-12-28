@@ -15,8 +15,18 @@
 
 	let props: Props = $props();
 	let node = $derived(props.node);
+
+	let tagName = $derived(node.data?.hName ?? 'p');
+	let isCalloutTitle = $derived(node.data?.hProperties?.dataCalloutTitle ?? false);
 </script>
 
-<p>
+<svelte:element this={tagName} class:callout-title={isCalloutTitle}>
 	<PhrasingContentParent {node} />
-</p>
+</svelte:element>
+
+<style>
+	.callout-title {
+		color: rgb(var(--callout-color));
+		font-weight: bold;
+	}
+</style>

@@ -13,37 +13,40 @@
 	}
 
 	const { Story } = defineMeta({
-		title: 'Remark AST/Root',
+		title: 'Remark AST/Callout',
 		component: Root,
 	});
 
-	const WITH_HEADING = dedent`
-        # Hello World
+	const WITH_CALLOUT = dedent`
+		> [!question] What is love?
+		> Baby don't hurt me
     `;
 
-	const WITH_PARAGRAPH = dedent`
-        **Hello** World, *my* name is Alex
+	const WITH_CALLOUT_OPEN = dedent`
+		> [!question]+ What is love?
+		> Baby don't hurt me
     `;
 
-	const WITH_BLOCKQUOTE = dedent`
-		> This is a quote
+	const WITH_CALLOUT_CLOSED = dedent`
+		> [!question]- What is love?
+		> Baby don't hurt me
     `;
 </script>
 
-<Story name="Heading">
+<Story name="Default">
 	<DomPrinter>
-		<Root node={parse(WITH_HEADING)} />
+		<Root node={parse(WITH_CALLOUT)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Paragraph">
+<Story name="Open">
 	<DomPrinter>
-		<Root node={parse(WITH_PARAGRAPH)} />
+		<Root node={parse(WITH_CALLOUT_OPEN)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Blockquote">
+<Story name="Closed">
 	<DomPrinter>
-		<Root node={parse(WITH_BLOCKQUOTE)} />
+		<Root node={parse(WITH_CALLOUT_CLOSED)} />
 	</DomPrinter>
 </Story>
