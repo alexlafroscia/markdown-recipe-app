@@ -21,7 +21,7 @@
 		<Frontmatter {frontmatter} />
 	{/if}
 
-	<div class="prose">
+	<div class="prose prose-li:marker:text-current prose-hr:border-current">
 		<Root node={recipeAST} />
 	</div>
 </div>
