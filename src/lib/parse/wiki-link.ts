@@ -57,3 +57,25 @@ export function makeOptions(options: MakeOptionsOptions): Partial<RemarkWikiLink
 }
 
 export { remarkWikiLink };
+
+interface WikiLinkProperties {
+	className: string;
+	href: string;
+}
+
+interface WikiLinkData {
+	alias: string;
+	exists: boolean;
+	hName: 'a';
+	permalink: string;
+	hProperties: WikiLinkProperties;
+}
+
+declare module 'mdast' {
+	interface PhrasingContentMap {
+		wikiLink: {
+			type: 'wikiLink';
+			data: WikiLinkData;
+		};
+	}
+}

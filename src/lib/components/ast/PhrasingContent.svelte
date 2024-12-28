@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { Content, PhrasingContent, PhrasingContentMap } from 'mdast';
+	import type { Node, PhrasingContent, PhrasingContentMap } from 'mdast';
 
-	export function isPhrasingContent(node: Content): node is PhrasingContent {
+	export function isPhrasingContent(node: Node): node is PhrasingContent {
 		return (
 			node.type === 'break' ||
 			node.type === 'delete' ||
@@ -11,7 +11,8 @@
 			node.type === 'inlineCode' ||
 			node.type === 'text' ||
 			node.type === 'strong' ||
-			node.type === 'link'
+			node.type === 'link' ||
+			node.type === 'wikiLink'
 		);
 	}
 </script>
@@ -35,6 +36,7 @@
 		text,
 		strong,
 		link,
+		wikiLink,
 	};
 
 	interface Props {
@@ -79,6 +81,12 @@
 
 {#snippet text(node: PhrasingContentMap['text'])}
 	{node.value}
+{/snippet}
+
+{#snippet wikiLink(node: PhrasingContentMap['wikiLink'])}
+	<svelte:element this={node.data.hName} href={node.data.hProperties.href}>
+		{node.data.alias}
+	</svelte:element>
 {/snippet}
 
 <!-- Ignore `as never`; this works but the following line does not type-check -->
