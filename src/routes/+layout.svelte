@@ -3,6 +3,8 @@
 	import type { LayoutData } from './$types';
 
 	import { page } from '$app/state';
+
+	import type { Recipe } from '$lib/recipe';
 	import RecipeLinkItem from '$lib/components/RecipeLinkItem.svelte';
 
 	import '../app.css';
@@ -15,14 +17,14 @@
 	let { children, data }: Props = $props();
 
 	let recipes = $derived(data.recipes);
-	let selectedRecipe = $derived(page.data.recipe);
+	let selectedRecipe = $derived(page.data.recipe) as Recipe | undefined;
 </script>
 
 <div class="list-and-detail">
 	<ul>
 		{#each recipes as recipe}
 			<li>
-				<RecipeLinkItem {recipe} active={recipe.name === selectedRecipe.name} />
+				<RecipeLinkItem {recipe} active={recipe.name === selectedRecipe?.name} />
 			</li>
 		{/each}
 	</ul>
