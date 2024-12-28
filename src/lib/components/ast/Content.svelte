@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Content } from 'mdast';
+	import type { Node } from 'mdast';
 
 	import BlockContent, { isBlockContent } from './BlockContent.svelte';
 	import ListItem, { isListItem } from './ListItem.svelte';
 	import PhrasingContent, { isPhrasingContent } from './PhrasingContent.svelte';
 
 	interface Props {
-		node: Content;
+		node: Node;
 	}
 
 	let props: Props = $props();

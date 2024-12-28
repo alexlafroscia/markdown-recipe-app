@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { List, Content } from 'mdast';
+	import type { List, Node } from 'mdast';
 
-	export function isList(node: Content): node is List {
+	export function isList(node: Node): node is List {
 		return node.type === 'list';
 	}
 </script>

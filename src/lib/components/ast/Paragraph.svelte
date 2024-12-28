@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { Paragraph, Content } from 'mdast';
+	import type { Paragraph, Node } from 'mdast';
 
-	export function isParagraph(node: Content): node is Paragraph {
+	export function isParagraph(node: Node): node is Paragraph {
 		return node.type === 'paragraph';
 	}
 </script>

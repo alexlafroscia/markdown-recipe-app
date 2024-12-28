@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { ThematicBreak, Content } from 'mdast';
+	import type { ThematicBreak, Node } from 'mdast';
 
-	export function isThematicBreak(node: Content): node is ThematicBreak {
+	export function isThematicBreak(node: Node): node is ThematicBreak {
 		return node.type === 'thematicBreak';
 	}
 </script>
