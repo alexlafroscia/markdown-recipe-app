@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Root } from 'mdast';
 
-	import Content from './Content.svelte';
+	import RootContent from './RootContent.svelte';
 
 	interface Props {
 		node: Root;
@@ -12,5 +12,5 @@
 </script>
 
 {#each node.children as child}
-	<Content node={child} />
+	<RootContent node={child} />
 {/each}
