@@ -3788,6 +3788,7 @@ __metadata:
     typescript: "npm:^5.0.0"
     unified: "npm:^11.0.5"
     unist-util-find: "npm:^3.0.0"
+    vault: "link:../shard"
     vite: "npm:^5.4.11"
     vitest: "npm:^2.0.4"
     yaml: "npm:^2.6.1"
@@ -5963,6 +5964,12 @@ __metadata:
   checksum: 387851192545e7f4d691ba674de90890bba76c0f08ee4909ab862377f556221e75b3a361466490e201203401d64d7795f889882bdabc98b6f3c0bf1038a535be
   languageName: node
   linkType: hard
+
+"vault@link:../shard::locator=markdown-recipe-app%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "vault@link:../shard::locator=markdown-recipe-app%40workspace%3A."
+  languageName: node
+  linkType: soft
 
 "vfile-message@npm:^4.0.0":
   version: 4.0.2
