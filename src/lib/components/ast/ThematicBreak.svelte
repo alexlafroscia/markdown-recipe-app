@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { ThematicBreak, Node } from 'mdast';
+	import type { ThematicBreak, Node } from 'vault/mdast';
 
 	export function isThematicBreak(node: Node): node is ThematicBreak {
 		return node.type === 'thematicBreak';

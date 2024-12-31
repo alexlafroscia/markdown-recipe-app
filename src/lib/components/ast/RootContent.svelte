@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RootContent } from 'mdast';
+	import type { RootContent } from 'vault/mdast';
 
 	import BlockContent, { isBlockContent } from './BlockContent.svelte';
 	import ListItem, { isListItem } from './ListItem.svelte';

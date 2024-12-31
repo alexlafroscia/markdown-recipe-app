@@ -1,16 +1,20 @@
+import { File } from 'vault/file';
 import { error } from '@sveltejs/kit';
-import { db } from '$lib/server/recipe-db';
 
 import type { PageServerLoad } from './$types';
+import { makeRecipe } from '$lib/recipe';
 
-export const load: PageServerLoad = async ({ params }) => {
-	const recipe = db.withName(params.name);
+export const load: PageServerLoad = async ({ params, locals }) => {
+	const { vault } = locals;
 
-	if (!recipe) {
+	const filePath = vault.resolvePath(params.name);
+	const file = filePath && vault.resolve(filePath);
+
+	if (!file || !(file instanceof File)) {
 		error(404, 'No recipe matching that name');
 	}
 
 	return {
-		recipe,
+		recipe: makeRecipe(filePath, file),
 	};
 };

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { List, Node } from 'mdast';
+	import type { List, Node } from 'vault/mdast';
 
 	export function isList(node: Node): node is List {
 		return node.type === 'list';

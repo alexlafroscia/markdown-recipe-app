@@ -1,20 +1,18 @@
-import type { ParseResult } from '$lib/parse';
+import type { File, FilePath } from 'vault/file';
 
-export interface Recipe extends ParseResult {
+export interface Recipe extends Pick<File, 'ast' | 'frontmatter'> {
 	/**
 	 * The user-facing name of the Recipe
 	 */
 	name: string;
 }
 
-export class RecipeDB {
-	constructor(private store: Map<string, Recipe>) {}
+export function makeRecipe(filePath: FilePath, file: File): Recipe {
+	const name = filePath.split('/').at(-1)?.replace('.md', '') as string;
 
-	all(): Recipe[] {
-		return Array.from(this.store.values());
-	}
-
-	withName(name: string): Recipe | undefined {
-		return this.store.get(name);
-	}
+	return {
+		name,
+		ast: file.ast,
+		frontmatter: file.frontmatter,
+	};
 }

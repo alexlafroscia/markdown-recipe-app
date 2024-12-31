@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { Blockquote, Node } from 'mdast';
+	import type { Blockquote, Node } from 'vault/mdast';
 
 	export function isBlockquote(node: Node): node is Blockquote {
 		return node.type === 'blockquote';

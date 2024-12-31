@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { Paragraph, Node } from 'mdast';
+	import type { Paragraph, Node } from 'vault/mdast';
 
 	export function isParagraph(node: Node): node is Paragraph {
 		return node.type === 'paragraph';

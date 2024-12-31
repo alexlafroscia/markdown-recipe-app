@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { BlockContent, Node } from 'mdast';
+	import type { BlockContent, Node } from 'vault/mdast';
 
 	import Blockquote, { isBlockquote } from './Blockquote.svelte';
 	import Heading, { isHeading } from './Heading.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { Node, PhrasingContent, PhrasingContentMap } from 'mdast';
+	import type { Node, PhrasingContent, PhrasingContentMap } from 'vault/mdast';
 
 	export function isPhrasingContent(node: Node): node is PhrasingContent {
 		return (

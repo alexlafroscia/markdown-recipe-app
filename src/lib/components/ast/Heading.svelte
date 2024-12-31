@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { Heading, Node } from 'mdast';
+	import type { Heading, Node } from 'vault/mdast';
 
 	export function isHeading(node: Node): node is Heading {
 		return node.type === 'heading';

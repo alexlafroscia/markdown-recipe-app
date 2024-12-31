@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Root } from 'mdast';
+	import type { Root } from 'vault/mdast';
 
 	import RootContent from './RootContent.svelte';
 

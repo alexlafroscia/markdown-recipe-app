@@ -1,12 +1,17 @@
 <script lang="ts" module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import dedent from 'dedent';
-	import { makeParser } from '$lib/parse';
+	import type { FilePath } from 'vault/file';
+	import { makeParser } from 'vault/parser';
 
 	import DomPrinter from '../DOMPrinter.svelte';
 	import Root from './Root.svelte';
 
-	const parseWithFrontmatter = makeParser();
+	const parseWithFrontmatter = makeParser({
+		index: () => [],
+		externalize: (filePath) => filePath,
+		resolvePath: (reference) => reference as FilePath,
+	});
 
 	function parse(doc: string) {
 		return parseWithFrontmatter(doc).ast;

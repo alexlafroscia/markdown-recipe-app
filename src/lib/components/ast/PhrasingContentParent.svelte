@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PhrasingContent } from 'mdast';
+	import type { PhrasingContent } from 'vault/mdast';
 
 	import PhrasingContentComponent from './PhrasingContent.svelte';
 
