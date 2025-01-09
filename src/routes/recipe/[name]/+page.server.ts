@@ -7,7 +7,7 @@ import { makeRecipe } from '$lib/recipe';
 export const load: PageServerLoad = async ({ params, locals }) => {
 	const { vault } = locals;
 
-	const filePath = vault.resolvePath(params.name);
+	const filePath = vault.resolvePath('Recipes/' + params.name);
 	const file = filePath && vault.resolve(filePath);
 
 	if (!file || !(file instanceof File)) {
