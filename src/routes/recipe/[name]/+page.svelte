@@ -30,6 +30,6 @@
 	.prose {
 		white-space: pre-line;
 
-		--tw-prose-headings: var(--rich-chocolate-brown);
+		--tw-prose-headings: var(--flexoki-black);
 	}
 </style>

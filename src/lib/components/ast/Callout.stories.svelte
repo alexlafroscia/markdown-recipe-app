@@ -36,6 +36,36 @@
 		> [!question]- What is love?
 		> Baby don't hurt me
     `;
+
+	const CALLOUT_TYPES = dedent`
+		> [!default] Default
+
+		> [!bug] Bug
+
+		> [!error] Error
+
+		> [!fail] Fail
+
+		> [!warning] Warning
+
+		> [!question] Question
+
+		> [!success] Success
+
+		> [!important] Important
+
+		> [!summary] Summary
+
+		> [!tip] Tip
+
+		> [!tldr] TLDR
+
+		> [!info] Info
+
+		> [!todo] Todo
+
+		> [!example] Example
+    `;
 </script>
 
 <Story name="Default">
@@ -54,4 +84,8 @@
 	<DomPrinter>
 		<Root node={parse(WITH_CALLOUT_CLOSED)} />
 	</DomPrinter>
+</Story>
+
+<Story name="Types">
+	<Root node={parse(CALLOUT_TYPES)} />
 </Story>

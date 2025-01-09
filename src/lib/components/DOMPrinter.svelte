@@ -47,8 +47,8 @@
 	}
 
 	.printed {
-		background: var(--rich-chocolate-brown);
-		color: var(--cream);
+		background: var(--flexoki-black);
+		color: var(--flexoki-paper);
 		padding: 0.5em;
 	}
 </style>

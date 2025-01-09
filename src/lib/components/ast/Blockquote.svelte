@@ -41,32 +41,51 @@
 
 <style>
 	.callout {
-		/* Obsidian Variable Configuration */
-		--callout-bug: var(--color-red-rgb);
-		--callout-default: var(--color-blue-rgb);
-		--callout-error: var(--color-red-rgb);
-		--callout-example: var(--color-purple-rgb);
-		--callout-fail: var(--color-red-rgb);
-		--callout-important: var(--color-cyan-rgb);
-		--callout-info: var(--color-blue-rgb);
-		--callout-question: var(--color-orange-rgb);
-		--callout-success: var(--color-green-rgb);
-		--callout-summary: var(--color-cyan-rgb);
-		--callout-tip: var(--color-cyan-rgb);
-		--callout-todo: var(--color-blue-rgb);
-		--callout-warning: var(--color-orange-rgb);
+		--callout-color: var(--flexoki-blue-600);
+		--callout-color-bg: var(--flexoki-blue-50);
 
-		--callout-color: var(--callout-default);
-		--callout-blend-mode: darken;
-
-		mix-blend-mode: var(--callout-blend-mode);
-		background-color: rgba(var(--callout-color), 0.1);
+		mix-blend-mode: darken;
+		background-color: var(--callout-color-bg);
+		color: var(--callout-color);
 
 		padding: 0.75em 1.5em;
 		margin-bottom: 1em;
 	}
 
-	.callout.warning {
-		--callout-color: var(--callout-warning);
+	.callout.bug,
+	.callout.error,
+	.callout.fail {
+		--callout-color: var(--flexoki-red-600);
+		--callout-color-bg: var(--flexoki-red-50);
+	}
+
+	.callout.warning,
+	.callout.question {
+		--callout-color: var(--flexoki-orange-600);
+		--callout-color-bg: var(--flexoki-orange-50);
+	}
+
+	.callout.success {
+		--callout-color: var(--flexoki-green-600);
+		--callout-color-bg: var(--flexoki-green-50);
+	}
+
+	.callout.important,
+	.callout.summary,
+	.callout.tip,
+	.callout.tldr {
+		--callout-color: var(--flexoki-cyan-600);
+		--callout-color-bg: var(--flexoki-cyan-50);
+	}
+
+	.callout.info,
+	.callout.todo {
+		--callout-color: var(--flexoki-blue-600);
+		--callout-color-bg: var(--flexoki-blue-50);
+	}
+
+	.callout.example {
+		--callout-color: var(--flexoki-purple-600);
+		--callout-color-bg: var(--flexoki-purple-50);
 	}
 </style>

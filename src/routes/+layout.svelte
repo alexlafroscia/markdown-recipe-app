@@ -36,8 +36,8 @@
 
 <style>
 	.list-and-detail {
-		background-color: var(--cream);
-		color: var(--rich-chocolate-brown);
+		background-color: var(--flexoki-paper);
+		color: var(--flexoki-black);
 
 		display: flex;
 		height: 100vh;
@@ -73,7 +73,7 @@
 		width: 100%;
 
 		@media (min-width: 600px) {
-			border-right: 1px solid var(--rich-chocolate-brown);
+			border-right: 1px solid var(--flexoki-black);
 			max-width: 35%;
 		}
 

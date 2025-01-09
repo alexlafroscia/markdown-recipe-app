@@ -2,20 +2,4 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* CSS Variables */
-:root {
-	--cream: #f8e8c1; /* Light Background */
-	--rich-chocolate-brown: #4b3c31; /* Dark Text */
-	--burnt-orange: #d76d3d; /* Primary Accent */
-	--muted-olive-green: #7c7b5e; /* Secondary Accent */
-
-	/* Obsidian Color Variables */
-	--color-red-rgb: 233, 49, 71;
-	--color-orange-rgb: 236, 117, 0;
-	--color-yellow-rgb: 224, 172, 0;
-	--color-green-rgb: 8, 185, 78;
-	--color-cyan-rgb: 0, 191, 188;
-	--color-blue-rgb: 8, 109, 221;
-	--color-purple-rgb: 120, 82, 238;
-	--color-pink-rgb: 213, 57, 132;
-}
+@import 'css/flexoki.css';

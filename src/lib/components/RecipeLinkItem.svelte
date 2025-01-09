@@ -28,11 +28,11 @@
 	}
 
 	.active {
-		background-color: color-mix(in srgb, var(--cream) 90%, black);
+		background-color: var(--flexoki-100);
 	}
 
 	a:hover {
-		background-color: color-mix(in srgb, var(--cream) 85%, black);
+		background-color: var(--flexoki-200);
 	}
 
 	b {
@@ -41,6 +41,6 @@
 
 	.image {
 		aspect-ratio: 1/1;
-		background-color: var(--muted-olive-green);
+		background-color: var(--flexoki-200);
 	}
 </style>
