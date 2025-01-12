@@ -1,10 +1,14 @@
+import type { Image } from 'vault/mdast';
 import type { File, FilePath } from 'vault/file';
+import { find } from 'unist-util-find';
 
 export interface Recipe extends Pick<File, 'ast' | 'frontmatter'> {
 	/**
 	 * The user-facing name of the Recipe
 	 */
 	name: string;
+
+	image?: Image;
 }
 
 export function makeRecipe(filePath: FilePath, file: File): Recipe {
@@ -14,5 +18,6 @@ export function makeRecipe(filePath: FilePath, file: File): Recipe {
 		name,
 		ast: file.ast,
 		frontmatter: file.frontmatter,
+		image: find(file.ast, { type: 'image' }),
 	};
 }

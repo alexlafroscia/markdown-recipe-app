@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Recipe } from '$lib/recipe';
 
+	import PhrasingContent from '$lib/components/ast/PhrasingContent.svelte';
+
 	interface Props {
 		recipe: Recipe;
 		active?: boolean;
@@ -10,7 +12,11 @@
 </script>
 
 <a href="/recipe/{recipe.name}" class:active>
-	<span class="image"></span>
+	{#if recipe.image}
+		<PhrasingContent node={recipe.image} />
+	{:else}
+		<span class="image"></span>
+	{/if}
 
 	<b>{recipe.name}</b>
 </a>
