@@ -4,6 +4,8 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { makeRecipe } from '$lib/recipe';
 
+export const prerender = true;
+
 export const load: PageServerLoad = async ({ params, locals }) => {
 	const { vault } = locals;
 

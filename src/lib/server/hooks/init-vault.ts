@@ -18,7 +18,7 @@ const vault = await Vault.init({
 			}
 
 			// `.md` links within `Recipes` are navigable within the app
-			return `/recipes/${parsed.name}`;
+			return `/recipe/${parsed.name}`;
 		}
 
 		// Non-`.md` files within `Recipes` are images; resolve as static assets

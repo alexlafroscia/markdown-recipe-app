@@ -3,6 +3,8 @@ import { makeRecipe } from '$lib/recipe';
 
 import type { LayoutServerLoad } from './$types';
 
+export const prerender = true;
+
 export const load: LayoutServerLoad = async ({ locals }) => {
 	const { vault } = locals;
 	const recipes = vault
