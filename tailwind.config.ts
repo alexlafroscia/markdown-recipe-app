@@ -165,6 +165,10 @@ export default {
 					950: 'var(--flexoki-magenta-950)',
 				},
 			},
+
+			spacing: {
+				half: '50%',
+			},
 		},
 	},
 

@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 
 	import Frontmatter from '$lib/components/Frontmatter.svelte';
+	import FullIngredientModal from '$lib/components/FullIngredientModal.svelte';
+	import { getIngredients } from '$lib/mdast/utils/get-ingredients';
 
 	let { data }: { data: PageData } = $props();
 
@@ -20,6 +22,10 @@
 	{#if frontmatter.length > 0}
 		<Frontmatter {frontmatter} />
 	{/if}
+
+	<section>
+		<FullIngredientModal ingredients={getIngredients(recipe.ast)} />
+	</section>
 
 	<div class="prose prose-li:marker:text-current prose-hr:border-current">
 		<Root node={recipeAST} />

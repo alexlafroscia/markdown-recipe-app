@@ -3600,6 +3600,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-svelte@npm:^0.473.0":
+  version: 0.473.0
+  resolution: "lucide-svelte@npm:0.473.0"
+  peerDependencies:
+    svelte: ^3 || ^4 || ^5.0.0-next.42
+  checksum: b2bf01d49d218feb7cb103883c6d6abe1d1643d4cc01c22c8a961266753073e4d447f661bfb8759b9be84f82cb50f2aa99849e71a3e157323bc6773842c1e01c
+  languageName: node
+  linkType: hard
+
 "lz-string@npm:^1.5.0":
   version: 1.5.0
   resolution: "lz-string@npm:1.5.0"
@@ -3665,6 +3674,7 @@ __metadata:
     "@types/node": "npm:^22.10.2"
     autoprefixer: "npm:^10.4.20"
     fast-glob: "npm:^3.3.2"
+    lucide-svelte: "npm:^0.473.0"
     prettier: "npm:^3.3.2"
     prettier-plugin-svelte: "npm:^3.2.6"
     prettier-plugin-tailwindcss: "npm:^0.6.5"
