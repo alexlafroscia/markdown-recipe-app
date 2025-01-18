@@ -5,8 +5,12 @@ import { Vault } from 'vault';
 
 import { VAULT_PATH } from '$env/static/private';
 
+import { setupProcessor } from '$lib/mdast/plugins';
+
 const vault = await Vault.init({
 	vaultPath: VAULT_PATH,
+
+	setupProcessor,
 
 	externalize(internalPath) {
 		const parsed = path.parse(internalPath);
