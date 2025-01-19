@@ -725,6 +725,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sheepdog/core@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@sheepdog/core@npm:0.0.2"
+  dependencies:
+    acorn: "npm:^8.11.3"
+    esm-env: "npm:^1.1.4"
+    esrap: "npm:^1.2.2"
+    zimmerframe: "npm:^1.1.2"
+  checksum: 449dff4a8c9a5e19c7426005fa32b1a2ed36f2ecf7ffc8a4b4eab6eb1a62ed4571ec43c3c87692a51e4cc5e9707fa6e26485fcd9711627de48a15c1e9bfd6730
+  languageName: node
+  linkType: hard
+
+"@sheepdog/svelte@npm:^0.12.1":
+  version: 0.12.1
+  resolution: "@sheepdog/svelte@npm:0.12.1"
+  dependencies:
+    "@sheepdog/core": "npm:0.0.2"
+  peerDependencies:
+    svelte: ^4.0.0 || ^5.0.0 || ^5.0.0-next.1
+  checksum: 70beda991905f80ba403380ee93755fa179fe1797ccaf534245b4c18b8c856a9840c9fe1f70868952febf4806539b66bdef0e9b415655bd7356b961165730a2e
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-actions@npm:8.4.7":
   version: 8.4.7
   resolution: "@storybook/addon-actions@npm:8.4.7"
@@ -1517,7 +1540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.12.1, acorn@npm:^8.14.0, acorn@npm:^8.6.0, acorn@npm:^8.9.0":
+"acorn@npm:^8.11.3, acorn@npm:^8.12.1, acorn@npm:^8.14.0, acorn@npm:^8.6.0, acorn@npm:^8.9.0":
   version: 8.14.0
   resolution: "acorn@npm:8.14.0"
   bin:
@@ -2647,6 +2670,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esm-env@npm:^1.1.4":
+  version: 1.2.2
+  resolution: "esm-env@npm:1.2.2"
+  checksum: 3d25c973f2fd69c25ffff29c964399cea573fe10795ecc1d26f6f957ce0483d3254e1cceddb34bf3296a0d7b0f1d53a28992f064ba509dfe6366751e752c4166
+  languageName: node
+  linkType: hard
+
 "esm-env@npm:^1.2.1":
   version: 1.2.1
   resolution: "esm-env@npm:1.2.1"
@@ -3659,6 +3689,7 @@ __metadata:
   dependencies:
     "@chromatic-com/storybook": "npm:^3.2.3"
     "@r4ai/remark-callout": "npm:^0.6.2"
+    "@sheepdog/svelte": "npm:^0.12.1"
     "@storybook/addon-essentials": "npm:^8.4.7"
     "@storybook/addon-interactions": "npm:^8.4.7"
     "@storybook/addon-svelte-csf": "npm:^5.0.0-next.21"

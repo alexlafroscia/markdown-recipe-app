@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"@r4ai/remark-callout": "^0.6.2",
+		"@sheepdog/svelte": "^0.12.1",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.15",
 		"fast-glob": "^3.3.2",

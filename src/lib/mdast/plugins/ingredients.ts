@@ -1,6 +1,5 @@
 import type { Root, RootContent } from 'vault/mdast';
 import type { Plugin } from 'unified';
-import { visit } from 'unist-util-visit';
 
 import { getRecipePages } from '../utils/get-recipe-pages';
 import { getSectionByHeader } from '../utils/get-section-by-header';
@@ -13,6 +12,13 @@ declare module 'mdast' {
 		 */
 		isIngredientList?: boolean;
 	}
+
+	interface ListItemData {
+		/**
+		 * A unique ID for this ingredient
+		 */
+		ingredientId?: string;
+	}
 }
 
 function anootateListsAsIngredients(nodes: RootContent[]) {
@@ -23,6 +29,13 @@ function anootateListsAsIngredients(nodes: RootContent[]) {
 			...list.data,
 			isIngredientList: true,
 		};
+
+		list.children.map((listItem) => {
+			listItem.data = {
+				...listItem.data,
+				ingredientId: crypto.randomUUID(),
+			};
+		});
 	}
 }
 

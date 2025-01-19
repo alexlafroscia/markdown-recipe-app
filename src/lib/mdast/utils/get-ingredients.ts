@@ -28,6 +28,10 @@ export function getIngredients(node: Root): List | undefined {
 	// Combine individual lists into one
 	const combinedList: List = {
 		type: 'list',
+		data: {
+			// Ensure synthesizes list element is marked as a list
+			isIngredientList: true,
+		},
 		children: ingredientLists.flatMap((list) => list.children),
 	};
 

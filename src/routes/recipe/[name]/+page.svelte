@@ -3,7 +3,7 @@
 	import type { PageData } from './$types';
 
 	import Frontmatter from '$lib/components/Frontmatter.svelte';
-	import FullIngredientModal from '$lib/components/FullIngredientModal.svelte';
+	import LaunchIngredientModal from '$lib/components/IngredientModal/Button.svelte';
 	import { getIngredients } from '$lib/mdast/utils/get-ingredients';
 
 	let { data }: { data: PageData } = $props();
@@ -24,7 +24,7 @@
 	{/if}
 
 	<section>
-		<FullIngredientModal ingredients={getIngredients(recipe.ast)} />
+		<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
 	</section>
 
 	<div class="prose prose-li:marker:text-current prose-hr:border-current">
