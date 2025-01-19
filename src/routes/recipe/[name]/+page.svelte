@@ -4,6 +4,7 @@
 
 	import Frontmatter from '$lib/components/Frontmatter.svelte';
 	import LaunchIngredientModal from '$lib/components/IngredientModal/Button.svelte';
+	import LaunchCookingWizard from '$lib/components/CookingWizard/Button.svelte';
 	import { getIngredients } from '$lib/mdast/utils/get-ingredients';
 
 	let { data }: { data: PageData } = $props();
@@ -23,8 +24,10 @@
 		<Frontmatter {frontmatter} />
 	{/if}
 
-	<section>
+	<section class="flex gap-2">
 		<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
+
+		<LaunchCookingWizard recipe={recipeAST} />
 	</section>
 
 	<div class="prose prose-li:marker:text-current prose-hr:border-current">
