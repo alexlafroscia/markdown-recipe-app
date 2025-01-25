@@ -49,14 +49,14 @@
 </script>
 
 <form class="flex flex-row-reverse items-center gap-4">
-	<button formmethod="dialog" class="flex gap-2 rounded bg-slate-100 p-2">
+	<button formmethod="dialog" class="flex gap-2 rounded-sm bg-slate-100 p-2">
 		<CircleXIcon />
 
 		Close
 	</button>
 
 	<button
-		class="flex gap-2 rounded bg-slate-100 p-2 disabled:bg-slate-50"
+		class="flex gap-2 rounded-sm bg-slate-100 p-2 disabled:bg-slate-50"
 		disabled={numChecked === numIngredients}
 		onclick={(event) => {
 			event.stopPropagation();
