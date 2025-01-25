@@ -1,3 +1,4 @@
+import { type InlineConfig, mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/sveltekit';
 
 const config: StorybookConfig = {
@@ -11,6 +12,15 @@ const config: StorybookConfig = {
 	framework: {
 		name: '@storybook/sveltekit',
 		options: {},
+	},
+	viteFinal(config) {
+		return mergeConfig(config, {
+			server: {
+				fs: {
+					allow: ['..'],
+				},
+			},
+		} satisfies InlineConfig);
 	},
 };
 export default config;
