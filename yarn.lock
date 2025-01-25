@@ -3720,7 +3720,7 @@ __metadata:
     unified: "npm:^11.0.5"
     unist-util-find: "npm:^3.0.0"
     unist-util-visit: "npm:^5.0.0"
-    vault: "link:../vault"
+    vault: "npm:@alexlafroscia/vault@0.1.0"
     vite: "npm:^5.4.11"
     vitest: "npm:^2.0.4"
     yaml: "npm:^2.6.1"
@@ -3832,6 +3832,13 @@ __metadata:
     "@babel/runtime": "npm:^7.12.1"
     mdast-util-to-markdown: "npm:^0.6.5"
   checksum: bde81b8b4cba40f4d821ca1572b29ee112a39c97d4c835bc471ff3f1f7a334a34490f88688908af96470de817fd2af7b9c2ecb297cba2d451790328466b076f1
+  languageName: node
+  linkType: hard
+
+"mdast@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mdast@npm:3.0.0"
+  checksum: dce2d68e9772705b675e7ebb543640e9f1361ff874eed818677304a351486904f427f87deff8bbd21942e58ed0d2ee3ddcfc1d010aea0de92b4a62ff0f94f0ff
   languageName: node
   linkType: hard
 
@@ -5639,6 +5646,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"to-vfile@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "to-vfile@npm:8.0.0"
+  dependencies:
+    vfile: "npm:^6.0.0"
+  checksum: 2547093592f752e204fc01292461dc851894df42ddbedcf9f291f1fc431d20287e0a730c1fe19e17a76ce6504f34ec27ec801003a4491fdc731db0c972e3fe35
+  languageName: node
+  linkType: hard
+
 "totalist@npm:^3.0.0":
   version: 3.0.1
   resolution: "totalist@npm:3.0.1"
@@ -5890,11 +5906,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vault@link:../vault::locator=markdown-recipe-app%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "vault@link:../vault::locator=markdown-recipe-app%40workspace%3A."
+"vault@npm:@alexlafroscia/vault@0.1.0":
+  version: 0.1.0
+  resolution: "@alexlafroscia/vault@npm:0.1.0"
+  dependencies:
+    "@r4ai/remark-callout": "npm:^0.6.2"
+    fast-glob: "npm:^3.3.2"
+    mdast: "npm:^3.0.0"
+    remark-frontmatter: "npm:^5.0.0"
+    remark-parse: "npm:^11.0.0"
+    remark-wiki-link: "npm:^2.0.1"
+    to-vfile: "npm:^8.0.0"
+    unified: "npm:^11.0.5"
+    vfile: "npm:^6.0.3"
+    yaml: "npm:^2.6.1"
+  checksum: 49a7882a7284b8077f48dc587a673ae6582a3e3986d0eebd733a65fa13790fff3cc332efa66ac06954b19f4b42e0c38666a9c94f46f67de2f6ee9c892d34503f
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "vfile-message@npm:^4.0.0":
   version: 4.0.2
@@ -5906,7 +5934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vfile@npm:^6.0.0":
+"vfile@npm:^6.0.0, vfile@npm:^6.0.3":
   version: 6.0.3
   resolution: "vfile@npm:6.0.3"
   dependencies:
