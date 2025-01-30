@@ -3960,7 +3960,6 @@ __metadata:
     "@tailwindcss/vite": "npm:^4.0.0"
     "@types/node": "npm:^22.10.2"
     clsx: "npm:^2.1.1"
-    fast-glob: "npm:^3.3.2"
     lucide-svelte: "npm:^0.473.0"
     prettier: "npm:^3.3.2"
     prettier-plugin-svelte: "npm:^3.2.6"
