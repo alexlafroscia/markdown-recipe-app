@@ -13,6 +13,10 @@ const config: StorybookConfig = {
 		name: '@storybook/sveltekit',
 		options: {},
 	},
+	staticDirs: [
+		// Serve the same static assets as ServerKit
+		'../static',
+	],
 	viteFinal(config) {
 		return mergeConfig(config, {
 			server: {

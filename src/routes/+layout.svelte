@@ -1,89 +1,42 @@
+<script lang="ts" module>
+	import '../app.css';
+</script>
+
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { LayoutData } from './$types';
+	import { clsx } from 'clsx';
 
 	import { page } from '$app/state';
+	import type { LayoutData } from './$types';
 
-	import type { Recipe } from '$lib/recipe';
-	import RecipeLinkItem from '$lib/components/RecipeLinkItem.svelte';
-
-	import '../app.css';
+	import ChefHatIcon from 'lucide-svelte/icons/chef-hat';
 
 	interface Props {
 		children: Snippet<[]>;
 		data: LayoutData;
 	}
 
-	let { children, data }: Props = $props();
-
-	let recipes = $derived(data.recipes);
-	let selectedRecipe = $derived(page.data.recipe) as Recipe | undefined;
+	let { children }: Props = $props();
+	let currentURL = $derived(page.url.pathname);
 </script>
 
-<div class="list-and-detail">
-	<ul>
-		{#each recipes as recipe}
-			<li>
-				<RecipeLinkItem {recipe} active={recipe.name === selectedRecipe?.name} />
-			</li>
-		{/each}
+<div class="bg-paper flex flex-col text-black md:h-screen md:flex-row">
+	<ul
+		class="flex gap-2 border-b border-gray-50 px-4 py-2 md:flex-col md:border-transparent md:pt-12 md:pr-0"
+	>
+		<li class="rounded-sm p-2 text-lg transition-colors hover:bg-gray-50 md:min-w-[200px]">
+			<a class="flex gap-2" href="/">
+				<ChefHatIcon
+					class={clsx('text-cyan-600', {
+						'fill-cyan-100': currentURL === '/',
+					})}
+				/>
+				Recipes
+			</a>
+		</li>
 	</ul>
 
-	<div class="detail">
+	<div class="detail px-4 md:overflow-auto">
 		{@render children()}
 	</div>
 </div>
-
-<style>
-	.list-and-detail {
-		background-color: var(--flexoki-paper);
-		color: var(--flexoki-black);
-
-		display: flex;
-		height: 100vh;
-
-		/* By default, a `.detail` with `.detail-empty` is hidden */
-		&:has(:global(.detail-empty)) .detail {
-			display: none;
-		}
-
-		/* By default, a list` with `.detail-full` is hidden */
-		&:has(:global(.detail-full)) ul {
-			display: none;
-		}
-
-		@media (min-width: 600px) {
-			&:has(:global(.detail-empty)) .detail {
-				display: block;
-			}
-
-			&:has(:global(.detail-full)) ul {
-				display: flex;
-			}
-		}
-	}
-
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5em;
-
-		overflow-y: auto;
-		padding: 0.5em 1em;
-		width: 100%;
-
-		@media (min-width: 600px) {
-			border-right: 1px solid var(--flexoki-black);
-			max-width: 35%;
-		}
-
-		@media (min-width: 800px) {
-			max-width: 40%;
-		}
-	}
-
-	.detail {
-		overflow: auto;
-		padding: 0 1em;
-	}
-</style>

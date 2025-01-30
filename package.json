@@ -24,6 +24,7 @@
 		"@sheepdog/svelte": "^0.12.1",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.15",
+		"clsx": "^2.1.1",
 		"fast-glob": "^3.3.2",
 		"lucide-svelte": "^0.473.0",
 		"remark-frontmatter": "^5.0.0",
@@ -32,7 +33,7 @@
 		"unified": "^11.0.5",
 		"unist-util-find": "^3.0.0",
 		"unist-util-visit": "^5.0.0",
-		"vault": "npm:@alexlafroscia/vault@0.1.0",
+		"vault": "npm:@alexlafroscia/vault@0.2.0",
 		"yaml": "^2.6.1"
 	},
 	"devDependencies": {

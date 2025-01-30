@@ -19,8 +19,6 @@
 	function openModal() {
 		modal?.showModal();
 	}
-
-	function copyRemaining() {}
 </script>
 
 <Button
@@ -34,7 +32,7 @@
 </Button>
 
 {#if ingredients && checkedState}
-	<dialog class="min-w-half flex-col gap-2 rounded-lg p-4" bind:this={modal}>
+	<dialog class="min-w-half m-auto flex-col gap-2 rounded-lg p-4 shadow-2xl" bind:this={modal}>
 		<IngredientModalContents {ingredients} />
 	</dialog>
 {/if}

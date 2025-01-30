@@ -3816,6 +3816,7 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.15"
     "@tailwindcss/vite": "npm:^4.0.0"
     "@types/node": "npm:^22.10.2"
+    clsx: "npm:^2.1.1"
     fast-glob: "npm:^3.3.2"
     lucide-svelte: "npm:^0.473.0"
     prettier: "npm:^3.3.2"
@@ -3832,7 +3833,7 @@ __metadata:
     unified: "npm:^11.0.5"
     unist-util-find: "npm:^3.0.0"
     unist-util-visit: "npm:^5.0.0"
-    vault: "npm:@alexlafroscia/vault@0.1.0"
+    vault: "npm:@alexlafroscia/vault@0.2.0"
     vite: "npm:^5.4.11"
     vitest: "npm:^2.0.4"
     yaml: "npm:^2.6.1"
@@ -5755,9 +5756,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vault@npm:@alexlafroscia/vault@0.1.0":
-  version: 0.1.0
-  resolution: "@alexlafroscia/vault@npm:0.1.0"
+"vault@npm:@alexlafroscia/vault@0.2.0":
+  version: 0.2.0
+  resolution: "@alexlafroscia/vault@npm:0.2.0"
   dependencies:
     "@r4ai/remark-callout": "npm:^0.6.2"
     fast-glob: "npm:^3.3.2"
@@ -5769,7 +5770,7 @@ __metadata:
     unified: "npm:^11.0.5"
     vfile: "npm:^6.0.3"
     yaml: "npm:^2.6.1"
-  checksum: 49a7882a7284b8077f48dc587a673ae6582a3e3986d0eebd733a65fa13790fff3cc332efa66ac06954b19f4b42e0c38666a9c94f46f67de2f6ee9c892d34503f
+  checksum: 2760b51907b45d7819787d3e3a4a440188869f7b6c1f6e4ff282649b769e5a512faa0c09cfe78c8142c6d6fd32c861e9138e11dc99bd4f393f79a420fe30018e
   languageName: node
   linkType: hard
 
