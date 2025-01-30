@@ -32,8 +32,7 @@
 		"unified": "^11.0.5",
 		"unist-util-find": "^3.0.0",
 		"unist-util-visit": "^5.0.0",
-		"vault": "npm:@alexlafroscia/vault@0.2.0",
-		"yaml": "^2.6.1"
+		"vault": "npm:@alexlafroscia/vault@0.2.0"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^3.2.4",
