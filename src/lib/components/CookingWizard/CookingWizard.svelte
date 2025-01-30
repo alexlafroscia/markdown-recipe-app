@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="wizard h-full divide-y overflow-y-auto bg-paper text-lg">
+<div class="wizard bg-paper h-full divide-y overflow-y-auto text-lg">
 	{#each pages as page}
 		{@const { ingredients, steps } = extractDetails(page)}
 
