@@ -20,7 +20,7 @@
 	let currentURL = $derived(page.url.pathname);
 </script>
 
-<div class="bg-paper flex flex-col text-black md:h-screen md:flex-row">
+<div class="bg-bg text-tx flex flex-col md:h-screen md:flex-row">
 	<ul
 		class="flex gap-2 border-b border-gray-50 px-4 py-2 md:flex-col md:border-transparent md:pt-12 md:pr-0"
 	>

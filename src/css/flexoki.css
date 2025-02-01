@@ -131,4 +131,14 @@
 	--flexoki-magenta-850: #4f1b39;
 	--flexoki-magenta-900: #39172b;
 	--flexoki-magenta-950: #24131d;
+
+	/* UI Color Variables */
+	--flexoki-tx: var(--flexoki-black);
+	--flexoki-tx-2: var(--flexoki-600);
+	--flexoki-tx-3: var(--flexoki-300);
+	--flexoki-bg: var(--flexoki-paper);
+	--flexoki-bg-2: var(--flexoki-50);
+	--flexoki-ui: var(--flexoki-100);
+	--flexoki-ui-2: var(--flexoki-150);
+	--flexoki-ui-3: var(--flexoki-200);
 }

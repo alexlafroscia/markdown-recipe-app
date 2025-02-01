@@ -135,6 +135,15 @@
 	--color-magenta-900: var(--flexoki-magenta-900);
 	--color-magenta-950: var(--flexoki-magenta-950);
 
+	--color-tx: var(--flexoki-black);
+	--color-tx-2: var(--flexoki-600);
+	--color-tx-3: var(--flexoki-300);
+	--color-bg: var(--flexoki-paper);
+	--color-bg-2: var(--flexoki-50);
+	--color-ui: var(--flexoki-100);
+	--color-ui-2: var(--flexoki-150);
+	--color-ui-3: var(--flexoki-200);
+
 	--spacing-half: 50%;
 }
 
