@@ -20,6 +20,14 @@
 	let currentURL = $derived(page.url.pathname);
 </script>
 
+<svelte:head>
+	<!-- Flexoki Paper -->
+	<meta name="theme-color" content="#fffcf0" />
+
+	<!-- Dark Mode -->
+	<!-- <meta name="theme-color" content="#872e4e" media="(prefers-color-scheme: dark)"> -->
+</svelte:head>
+
 <div class="bg-bg text-tx flex flex-col md:h-screen md:flex-row">
 	<ul
 		class="flex gap-2 border-b border-gray-50 px-4 py-2 md:flex-col md:border-transparent md:pt-12 md:pr-0"
@@ -36,7 +44,7 @@
 		</li>
 	</ul>
 
-	<div class="detail px-4 md:overflow-auto">
+	<div class="flex-grow px-4 md:overflow-auto">
 		{@render children()}
 	</div>
 </div>
