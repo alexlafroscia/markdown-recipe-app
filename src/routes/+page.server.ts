@@ -3,8 +3,6 @@ import { makeRecipe } from '$lib/recipe';
 
 import type { PageServerLoad } from './$types';
 
-export const prerender = true;
-
 export const load: PageServerLoad = async ({ locals }) => {
 	const { vault } = locals;
 	const recipes = vault
