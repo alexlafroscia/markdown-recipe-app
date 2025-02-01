@@ -44,7 +44,7 @@
 		</li>
 	</ul>
 
-	<div class="flex-grow px-4 md:overflow-auto">
+	<div class="flex-grow px-4 py-2 md:overflow-auto">
 		{@render children()}
 	</div>
 </div>

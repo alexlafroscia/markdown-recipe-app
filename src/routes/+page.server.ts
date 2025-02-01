@@ -3,7 +3,7 @@ import { makeRecipe } from '$lib/recipe';
 
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, url }) => {
 	const { vault } = locals;
 	const recipes = vault
 		.index()

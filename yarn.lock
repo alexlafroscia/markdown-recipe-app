@@ -3581,6 +3581,7 @@ __metadata:
     storybook: "npm:^8.5.2"
     svelte: "npm:^5.19.5"
     svelte-check: "npm:^4.1.4"
+    svelte-persisted-store: "npm:^0.12.0"
     tailwindcss: "npm:^4.0.1"
     typescript: "npm:^5.7.3"
     unified: "npm:^11.0.5"
@@ -5078,6 +5079,15 @@ __metadata:
   bin:
     svelte-check: bin/svelte-check
   checksum: f0161214078e7b16178167daa5c82a1790759859946b8cd4a9f5ae866345c502f1f27cadc6734b36709ad75c79650fd85cae286f7a21c78e403521e35b5ebb20
+  languageName: node
+  linkType: hard
+
+"svelte-persisted-store@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "svelte-persisted-store@npm:0.12.0"
+  peerDependencies:
+    svelte: ^3.48.0 || ^4 || ^5
+  checksum: 32dcc9ab2458689c9f8abab95544bbc24ab587384e10d785b2cf44b584644e07f577087a90f2e447de715fc3c3bde9a2c22689689e56b6fa2308d87a8ad9e2a7
   languageName: node
   linkType: hard
 

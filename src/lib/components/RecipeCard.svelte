@@ -22,7 +22,7 @@
 		{#if image}
 			<img src={image.url} alt={image.alt} class="aspect-square object-cover" />
 		{:else}
-			<RecipeFallbackImage {recipe} />
+			<RecipeFallbackImage class="h-full" {recipe} />
 		{/if}
 	</div>
 

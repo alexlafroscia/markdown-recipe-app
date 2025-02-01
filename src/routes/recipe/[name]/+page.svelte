@@ -15,7 +15,7 @@
 	let frontmatter = $derived(Object.entries(recipe.frontmatter));
 </script>
 
-<div class="flex flex-col gap-4 py-2">
+<div class="flex flex-col gap-4">
 	<header>
 		<h1 class="mb-2 text-2xl">{recipe.name}</h1>
 	</header>
