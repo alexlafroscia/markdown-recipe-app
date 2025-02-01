@@ -11,6 +11,10 @@ export interface Recipe extends Pick<File, 'ast' | 'frontmatter'> {
 	image?: Image;
 }
 
+export function makeUrl(recipe: Pick<Recipe, 'name'>): string {
+	return `/recipe/${recipe.name}`;
+}
+
 export function makeRecipe(filePath: FilePath, file: File): Recipe {
 	const name = filePath.split('/').at(-1)?.replace('.md', '') as string;
 

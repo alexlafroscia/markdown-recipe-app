@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Recipe } from '$lib/recipe';
+	import { type Recipe, makeUrl } from '$lib/recipe';
 
 	import RecipeFallbackImage from './RecipeFallbackImage.svelte';
 
@@ -15,7 +15,7 @@
 </script>
 
 <a
-	href="/recipe/{recipe.name}"
+	href={makeUrl(recipe)}
 	class="flex flex-col gap-2 bg-white p-4 shadow-md hover:scale-101 hover:shadow-lg"
 >
 	<div class="aspect-square w-full shadow">
