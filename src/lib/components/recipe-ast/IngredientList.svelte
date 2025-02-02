@@ -6,7 +6,7 @@
 
 	interface Props {
 		node: List;
-		checkedState?: IngredientStateMap;
+		checkedState: IngredientStateMap;
 	}
 
 	let { node, checkedState }: Props = $props();
@@ -14,14 +14,16 @@
 
 <ul class="list-none ps-0">
 	{#each node.children as child}
+		{@const id = child.data?.ingredientId}
 		<li>
 			<IngredientListItem
 				node={child}
-				update={(checked) => {
-					const id = child.data!.ingredientId!;
-
-					checkedState?.set(id, checked);
-				}}
+				bind:checked={
+					() => checkedState.get(id!)!,
+					(value) => {
+						checkedState.set(id!, value);
+					}
+				}
 			/>
 		</li>
 	{/each}

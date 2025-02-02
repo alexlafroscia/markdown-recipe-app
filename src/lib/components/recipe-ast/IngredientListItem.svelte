@@ -4,24 +4,16 @@
 
 	interface Props {
 		node: ListItem;
-		update?: (checked: boolean) => void;
+		checked: boolean;
 	}
 
-	let { node, update }: Props = $props();
+	let { node, checked = $bindable() }: Props = $props();
 
-	let checked = $state(false);
 	let id = crypto.randomUUID();
 </script>
 
 <div class="flex items-center gap-2" class:line-through={checked}>
-	<input
-		{id}
-		type="checkbox"
-		bind:checked
-		onclick={() => {
-			update?.(!checked);
-		}}
-	/>
+	<input {id} type="checkbox" bind:checked />
 
 	<label for={id}>
 		{#each node.children as child}
