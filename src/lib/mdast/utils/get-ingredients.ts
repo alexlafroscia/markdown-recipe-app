@@ -9,17 +9,12 @@ function isIngredientList(node: Node): node is List {
 	return isList(node) && !!node.data?.isIngredientList;
 }
 
-export function getIngredients(node: Root): List | undefined {
-	let ingredientLists: List[] | undefined;
+export function getIngredients(node: Root): List {
+	let ingredientLists: List[] = [];
 
 	visit(node, isIngredientList, (list) => {
-		ingredientLists = ingredientLists ?? [];
 		ingredientLists.push(list);
 	});
-
-	if (!ingredientLists) {
-		return ingredientLists;
-	}
 
 	if (ingredientLists.length === 1) {
 		return ingredientLists[0];
