@@ -15,6 +15,10 @@
 			node.type === 'wikiLink'
 		);
 	}
+
+	function altIsMaxWidth(alt: string | undefined | null): boolean {
+		return typeof alt === 'string' && !isNaN(parseInt(alt));
+	}
 </script>
 
 <script lang="ts">
@@ -64,7 +68,12 @@
 {/snippet}
 
 {#snippet image(node: PhrasingContentMap['image'])}
-	<img src={node.url} alt={node.alt} />
+	{#if altIsMaxWidth(node.alt)}
+		<!-- svelte-ignore a11y_missing_attribute -->
+		<img src={node.url} style:max-width={`${node.alt}px`} />
+	{:else}
+		<img src={node.url} alt={node.alt} />
+	{/if}
 {/snippet}
 
 {#snippet inlineCode(node: PhrasingContentMap['inlineCode'])}
