@@ -22,11 +22,11 @@
 	class={[
 		'flex items-center justify-center',
 		{
-			'bg-red-50': noImageColorOption === 0,
-			'bg-blue-50': noImageColorOption === 1,
-			'bg-green-50': noImageColorOption === 2,
-			'bg-yellow-50': noImageColorOption === 3,
-			'bg-purple-50': noImageColorOption === 4,
+			'bg-red-50 dark:bg-red-950': noImageColorOption === 0,
+			'bg-blue-50 dark:bg-blue-950': noImageColorOption === 1,
+			'bg-green-50 dark:bg-green-950': noImageColorOption === 2,
+			'bg-yellow-50 dark:bg-yellow-950': noImageColorOption === 3,
+			'bg-purple-50 dark:bg-purple-950': noImageColorOption === 4,
 		},
 		classValue,
 	]}

@@ -39,6 +39,7 @@
 	.prose {
 		white-space: pre-line;
 
-		--tw-prose-headings: var(--flexoki-black);
+		--tw-prose-headings: var(--flexoki-tx);
+		--tw-prose-body: var(--flexoki-tx);
 	}
 </style>

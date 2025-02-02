@@ -21,18 +21,17 @@
 </script>
 
 <svelte:head>
-	<!-- Flexoki Paper -->
+	<!-- Light Mode: Flexoki Paper -->
 	<meta name="theme-color" content="#fffcf0" />
-
-	<!-- Dark Mode -->
-	<!-- <meta name="theme-color" content="#872e4e" media="(prefers-color-scheme: dark)"> -->
+	<!-- Dark Mode: Flexoki Black -->
+	<meta name="theme-color" content="#100f0f" media="(prefers-color-scheme: dark)" />
 </svelte:head>
 
 <div class="bg-bg text-tx flex flex-col md:h-screen md:flex-row">
 	<ul
 		class="flex gap-2 border-b border-gray-50 px-4 py-2 md:flex-col md:border-transparent md:pt-12 md:pr-0"
 	>
-		<li class="rounded-sm p-2 text-lg transition-colors hover:bg-gray-50 md:min-w-[200px]">
+		<li class="hover:bg-ui-2 rounded-sm p-2 text-lg transition-colors md:min-w-[200px]">
 			<a class="flex gap-2" href="/">
 				<ChefHatIcon
 					class={clsx('text-cyan-600', {
