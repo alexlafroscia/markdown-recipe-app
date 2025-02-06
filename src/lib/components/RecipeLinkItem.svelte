@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Recipe } from '$lib/recipe';
+	import { type Recipe, makeUrl } from '$lib/recipe';
 
 	import PhrasingContent from '$lib/components/ast/PhrasingContent.svelte';
 
@@ -11,7 +11,7 @@
 	const { recipe, active = false }: Props = $props();
 </script>
 
-<a href="/recipe/{recipe.name}" class:active>
+<a href={makeUrl(recipe)} class:active>
 	{#if recipe.image}
 		<PhrasingContent node={recipe.image} />
 	{:else}
