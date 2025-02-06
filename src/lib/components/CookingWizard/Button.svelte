@@ -15,6 +15,14 @@
 	let isCooking = $state(false);
 	let modal = $state<HTMLDialogElement>();
 
+	$effect(() => {
+		if (isCooking) {
+			document.body.classList.add('overflow-y-hidden');
+		} else {
+			document.body.classList.remove('overflow-y-hidden');
+		}
+	});
+
 	function openModal() {
 		isCooking = true;
 		modal?.showModal();
