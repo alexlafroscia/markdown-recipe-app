@@ -2,6 +2,7 @@
 	import CookingPotIcon from 'lucide-svelte/icons/cooking-pot';
 
 	import Button from '$lib/components/Button.svelte';
+	import Dialog, { DialogController } from '$lib/components/Dialog.svelte';
 	import type { getIngredients } from '$lib/mdast/utils/get-ingredients';
 	import { makeIngredientStateMap } from '$lib/ingredients';
 
@@ -13,18 +14,14 @@
 
 	let { ingredients }: Props = $props();
 
-	let modal = $state<HTMLDialogElement>();
 	let checkedState = ingredients ? makeIngredientStateMap(ingredients) : undefined;
-
-	function openModal() {
-		modal?.showModal();
-	}
+	let dialogController = new DialogController();
 </script>
 
 <Button
 	class="bg-green-100 text-green-800 hover:bg-green-200 disabled:bg-green-50"
 	disabled={!ingredients}
-	onclick={openModal}
+	onclick={dialogController.showModal}
 >
 	<CookingPotIcon />
 
@@ -32,13 +29,13 @@
 </Button>
 
 {#if ingredients && checkedState}
-	<dialog class="min-w-half m-auto flex-col gap-2 rounded-lg p-4 shadow-2xl" bind:this={modal}>
+	<Dialog
+		class={[
+			'min-w-half m-auto flex-col gap-2 rounded-lg p-4 shadow-2xl',
+			dialogController.isOpen && 'flex',
+		]}
+		controller={dialogController}
+	>
 		<IngredientModalContents {ingredients} />
-	</dialog>
+	</Dialog>
 {/if}
-
-<style>
-	dialog[open] {
-		display: flex;
-	}
-</style>
