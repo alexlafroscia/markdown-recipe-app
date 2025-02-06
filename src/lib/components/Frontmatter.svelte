@@ -60,7 +60,7 @@
 
 			return {
 				type: 'wikilink',
-				label: input,
+				label: fileName,
 				url: stringifiedUrl,
 			};
 		}
@@ -92,19 +92,19 @@
 	{:else if value.type === 'date'}
 		{formatter.format(value.value)}
 	{:else if value.type === 'url'}
-		<a class="underline" href={value.value}>
+		<a class="block truncate underline" href={value.value}>
 			{value.value}
 		</a>
 	{:else if value.type === 'wikilink'}
 		<a class="underline" href={value.url}>
-			{value.label}
+			<span class="text-tx-2">[[</span>{value.label}<span class="text-tx-2">]]</span>
 		</a>
 	{/if}
 {/snippet}
 
-<dl class="text-sm">
+<dl class="bg-bg-2 grid p-2 text-sm">
 	{#each entriedWithValues as [key, value]}
-		<dt>{key}</dt>
+		<dt class="border-bg border-r">{key}</dt>
 		<dd>
 			{#if Array.isArray(value)}
 				<ul>
@@ -123,9 +123,8 @@
 
 <style>
 	dl {
-		display: grid;
-		row-gap: 0.25em;
+		row-gap: 0.5em;
 		column-gap: 1em;
-		grid-template-columns: 100px 1fr;
+		grid-template-columns: 100px minmax(0, 1fr);
 	}
 </style>
