@@ -1,9 +1,12 @@
 <script lang="ts">
 	import type { Root, RootContent, List } from 'vault/mdast';
+	import { inview } from 'svelte-inview';
 
 	import CookingPotIcon from 'lucide-svelte/icons/cooking-pot';
 	import MaximizeIcon from 'lucide-svelte/icons/maximize-2';
 	import MinimizeIcon from 'lucide-svelte/icons/minimize-2';
+	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
+	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 
 	import { type Page, getRecipePages } from '$lib/mdast/utils/get-recipe-pages';
 	import { makeIngredientStateMap } from '$lib/ingredients';
@@ -38,6 +41,25 @@
 
 	const fullscreen = new FullscreenController();
 	let ingredientsExpanded = $state(true);
+
+	/* === Previous/Next Page Controls === */
+
+	let visiblePageElement = $state<HTMLElement>();
+	let previousPageElement = $derived(visiblePageElement?.previousElementSibling);
+	let nextPageElement = $derived(visiblePageElement?.nextElementSibling);
+
+	let allPageElements = $derived(Array.from(visiblePageElement?.parentElement?.children ?? []));
+	let visiblePageIndex = $derived(
+		visiblePageElement ? allPageElements.indexOf(visiblePageElement) + 1 : 0,
+	);
+
+	function scrollIntoView(element: Element | null | undefined) {
+		element?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+			inline: 'start',
+		});
+	}
 </script>
 
 <div class="bg-bg-2 flex max-h-screen max-w-4xl flex-col" use:fullscreen.attach>
@@ -50,6 +72,32 @@
 				}}
 			>
 				<CookingPotIcon class="h-5 w-5" />
+			</Button>
+		</div>
+
+		<div class="flex items-center gap-2">
+			<Button
+				class="bg-ui hover:bg-ui-2 disabled:text-tx-2 disabled:hover:bg-ui"
+				disabled={!previousPageElement}
+				onclick={() => {
+					scrollIntoView(previousPageElement);
+				}}
+			>
+				<ArrowLeft class="h-5 w-5" />
+			</Button>
+
+			<span>
+				{visiblePageIndex} / {pages.length}
+			</span>
+
+			<Button
+				class="bg-ui hover:bg-ui-2 disabled:text-tx-2 disabled:hover:bg-ui"
+				disabled={!nextPageElement}
+				onclick={() => {
+					scrollIntoView(nextPageElement);
+				}}
+			>
+				<ArrowRight class="h-5 w-5" />
 			</Button>
 		</div>
 
@@ -70,7 +118,15 @@
 		{#each pages as page}
 			{@const { ingredients, steps } = extractDetails(page)}
 
-			<div class="flex w-full shrink-0 snap-start flex-col-reverse md:flex-row">
+			<div
+				class="flex w-full shrink-0 snap-start flex-col-reverse md:flex-row"
+				use:inview={{
+					threshold: 0.5,
+				}}
+				oninview_enter={(event) => {
+					visiblePageElement = event.detail.node;
+				}}
+			>
 				<div class={['min-w-1/3 p-4', ingredientsExpanded ? '' : 'hidden md:block']}>
 					{#if ingredients}
 						<IngredientList node={ingredients} checkedState={ingredientState} />
