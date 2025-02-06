@@ -11,7 +11,7 @@
 </script>
 
 <button
-	class={['flex gap-2 rounded-sm p-2 transition-colors hover:shadow-xs', classNames]}
+	class={['flex items-center gap-2 rounded-sm p-2 transition-colors hover:shadow-xs', classNames]}
 	{...rest}
 >
 	{@render children()}

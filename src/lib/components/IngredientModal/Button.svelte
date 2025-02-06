@@ -23,7 +23,7 @@
 	disabled={!ingredients}
 	onclick={dialogController.showModal}
 >
-	<CookingPotIcon />
+	<CookingPotIcon class="h-4 w-4" />
 
 	Ingredients
 </Button>

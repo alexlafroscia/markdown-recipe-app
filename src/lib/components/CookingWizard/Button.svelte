@@ -21,7 +21,7 @@
 	disabled={dialogController.isOpen}
 	onclick={dialogController.showModal}
 >
-	<ChefHatIcon />
+	<ChefHatIcon class="h-4 w-4" />
 
 	Cook
 </Button>

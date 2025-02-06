@@ -21,14 +21,16 @@
 	</header>
 
 	{#if frontmatter.length > 0}
-		<Frontmatter {frontmatter} />
+		<div class="bg-bg-2">
+			<Frontmatter {frontmatter} />
+
+			<section class="border-bg m-2 mt-0 flex gap-2 border-t pt-2 text-sm">
+				<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
+
+				<LaunchCookingWizard recipe={recipeAST} />
+			</section>
+		</div>
 	{/if}
-
-	<section class="flex gap-2">
-		<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
-
-		<LaunchCookingWizard recipe={recipeAST} />
-	</section>
 
 	<div class="prose prose-li:marker:text-current prose-hr:border-current">
 		<Root node={recipeAST} />

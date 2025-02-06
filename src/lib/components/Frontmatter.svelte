@@ -102,7 +102,7 @@
 	{/if}
 {/snippet}
 
-<dl class="bg-bg-2 grid p-2 text-sm">
+<dl class="grid p-2 text-sm">
 	{#each entriedWithValues as [key, value]}
 		<dt class="border-bg border-r">{key}</dt>
 		<dd>
