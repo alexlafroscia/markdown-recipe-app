@@ -16,7 +16,7 @@
 
 <a
 	href={makeUrl(recipe)}
-	class="flex flex-col gap-2 bg-white p-4 shadow-md hover:scale-101 hover:shadow-lg"
+	class="bg-bg-2 flex flex-col gap-2 p-4 shadow-md hover:scale-101 hover:shadow-lg"
 >
 	<div class="aspect-square w-full shadow">
 		{#if image}
