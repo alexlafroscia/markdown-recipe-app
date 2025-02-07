@@ -8,6 +8,11 @@
 		value: string;
 	};
 
+	type NumberValue = {
+		type: 'number';
+		value: number;
+	};
+
 	type DateValue = {
 		type: 'date';
 		value: Date;
@@ -29,7 +34,7 @@
 		value: string[];
 	};
 
-	type Value = StringValue | DateValue | URLValue | ObsidianLinkValue | TagListValue;
+	type Value = StringValue | NumberValue | DateValue | URLValue | ObsidianLinkValue | TagListValue;
 
 	interface Props {
 		frontmatter: Frontmatter;
@@ -38,6 +43,11 @@
 	let { frontmatter }: Props = $props();
 
 	function toValue(input: any): Value {
+		// Try: number
+		if (typeof input === 'number') {
+			return { type: 'number', value: input };
+		}
+
 		// Try: Date
 		const asDate = new Date(input);
 		if (!isNaN(asDate as any)) {
@@ -87,7 +97,7 @@
 </script>
 
 {#snippet renderValue(value: Value)}
-	{#if value.type === 'string'}
+	{#if value.type === 'string' || value.type === 'number'}
 		{value.value}
 	{:else if value.type === 'date'}
 		{formatter.format(value.value)}
