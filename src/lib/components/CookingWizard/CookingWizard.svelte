@@ -2,6 +2,7 @@
 	import type { Root, RootContent, List } from 'vault/mdast';
 	import { inview } from 'svelte-inview';
 
+	import CircleXIcon from 'lucide-svelte/icons/circle-x';
 	import CookingPotIcon from 'lucide-svelte/icons/cooking-pot';
 	import MaximizeIcon from 'lucide-svelte/icons/maximize-2';
 	import MinimizeIcon from 'lucide-svelte/icons/minimize-2';
@@ -101,18 +102,28 @@
 			</Button>
 		</div>
 
-		<Button
-			class="bg-ui hover:bg-ui-2"
-			onclick={() => {
-				fullscreen.toggle();
-			}}
-		>
-			{#if fullscreen.enabled}
-				<MinimizeIcon class="h-5 w-5" />
-			{:else}
-				<MaximizeIcon class="h-5 w-5" />
+		<div class="flex items-center gap-2">
+			<Button
+				class="bg-ui hover:bg-ui-2"
+				onclick={() => {
+					fullscreen.toggle();
+				}}
+			>
+				{#if fullscreen.enabled}
+					<MinimizeIcon class="h-5 w-5" />
+				{:else}
+					<MaximizeIcon class="h-5 w-5" />
+				{/if}
+			</Button>
+
+			{#if !fullscreen.enabled}
+				<form class="contents">
+					<Button formmethod="dialog" class="bg-ui hover:bg-ui-2">
+						<CircleXIcon class="h-5 w-5" />
+					</Button>
+				</form>
 			{/if}
-		</Button>
+		</div>
 	</header>
 	<div class="flex flex-grow snap-x snap-mandatory items-stretch overflow-x-auto text-lg">
 		{#each pages as page}
