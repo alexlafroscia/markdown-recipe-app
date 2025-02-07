@@ -21,8 +21,11 @@
 	</header>
 
 	{#if frontmatter.length > 0}
-		<div class="bg-bg-2">
-			<Frontmatter {frontmatter} />
+		<div class="bg-bg-2 rounded">
+			<details open>
+				<summary class="p-2">Properties</summary>
+				<Frontmatter {frontmatter} />
+			</details>
 
 			<section class="border-bg m-2 mt-0 flex gap-2 border-t pt-2 text-sm">
 				<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
