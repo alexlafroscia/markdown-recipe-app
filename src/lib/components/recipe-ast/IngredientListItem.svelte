@@ -12,7 +12,7 @@
 	let id = crypto.randomUUID();
 </script>
 
-<div class="flex items-center gap-2" class:line-through={checked}>
+<div class="flex items-baseline gap-2" class:line-through={checked}>
 	<input {id} type="checkbox" bind:checked />
 
 	<label for={id}>

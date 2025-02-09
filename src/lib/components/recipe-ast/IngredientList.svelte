@@ -12,7 +12,7 @@
 	let { node, checkedState }: Props = $props();
 </script>
 
-<ul class="list-none ps-0">
+<ul class="list-none space-y-4 ps-0">
 	{#each node.children as child}
 		{@const id = child.data?.ingredientId}
 		<li>
