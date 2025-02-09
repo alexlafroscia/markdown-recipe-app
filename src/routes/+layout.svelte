@@ -25,6 +25,12 @@
 	<meta name="theme-color" content="#fffcf0" />
 	<!-- Dark Mode: Flexoki Black -->
 	<meta name="theme-color" content="#100f0f" media="(prefers-color-scheme: dark)" />
+
+	<!-- Disable tap-to-zoom on iOS -->
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+	/>
 </svelte:head>
 
 <div class="bg-bg text-tx flex flex-col md:h-screen md:flex-row">
