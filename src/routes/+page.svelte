@@ -26,21 +26,21 @@
 
 	<div class="divide-x-ui-2 flex divide-solid rounded shadow">
 		<button
-			class={['hover:bg-ui-2 flex rounded-l p-2', $display === 'grid' ? 'bg-ui-3' : 'bg-ui']}
-			onclick={() => {
-				$display = 'grid';
-			}}
-		>
-			<GridIcon class="h-4 w-4" />
-		</button>
-
-		<button
-			class={['hover:bg-ui-2 flex rounded-r p-2', $display === 'list' ? 'bg-ui-3' : 'bg-ui']}
+			class={['hover:bg-ui-2 flex rounded-l p-2', $display === 'list' ? 'bg-ui-3' : 'bg-ui']}
 			onclick={() => {
 				$display = 'list';
 			}}
 		>
 			<ListIcon class="h-4 w-4" />
+		</button>
+
+		<button
+			class={['hover:bg-ui-2 flex rounded-r p-2', $display === 'grid' ? 'bg-ui-3' : 'bg-ui']}
+			onclick={() => {
+				$display = 'grid';
+			}}
+		>
+			<GridIcon class="h-4 w-4" />
 		</button>
 	</div>
 </header>
