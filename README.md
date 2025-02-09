@@ -1,38 +1,28 @@
-# sv
+# markdown recipe app
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Build a static web site from recipes in your Obsidian vault
 
-## Creating a project
+## What is this?
 
-If you're seeing this, you've probably already done this step. Congrats!
+I have recently been managing my recipe collection in my Obsidian vault through a plugin called [`obsidian-recipe-view`](https://github.com/lachholden/obsidian-recipe-view). I really like keeping my recipes in Markdown, but don't like having to actually be inside Obsidian while I'm cooking.
 
-```bash
-# create a new project in the current directory
-npx sv create
+Inspired by the principle of [file over app](https://stephango.com/file-over-app), I figured I could build a custom recipe application UI on top of the data that still lives in Obsidian. This gives me a more tailored experience to how I need to _use_ my recipes without having to compromise on the way the data is stored.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Running the app
 
-## Developing
+The app automatically treats all files within the `Recipes/` directory of an Obsidian vault as recipes that it will pull into the app. "Assets" referenced by these files are rendered in the app, but files outside of that location are considered "external" and will be opened in Obsidian, instead.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The `VAULT_PATH` environment variable should point to the location of your Obsidian vault; you can set this in an `.env.local` file as a convenience.
 
-```bash
-npm run dev
+> [!WARNING]  
+> Be careful when building out the site from your Obsidian vault; there is always a risk when deploying an application from otherwise-private data
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Screenshots
 
-## Building
+![Recipe List](docs/list.png)
 
-To create a production version of your app:
+![Recipe View](docs/recipe.png)
 
-```bash
-npm run build
-```
+![Ingredient List](docs/ingredient-list.png)
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+![Cooking Wizard](docs/cooking-wizard.png)
