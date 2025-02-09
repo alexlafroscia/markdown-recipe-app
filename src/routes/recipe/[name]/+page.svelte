@@ -13,6 +13,9 @@
 	let recipeAST = $derived(recipe.ast);
 
 	let frontmatter = $derived(Object.entries(recipe.frontmatter));
+
+	let ingredients = $derived(getIngredients(recipeAST));
+	let hasIngredients = $derived(ingredients.children.length > 0);
 </script>
 
 <div class="flex flex-col gap-4">
@@ -28,7 +31,9 @@
 			</details>
 
 			<section class="border-bg m-2 mt-0 flex gap-2 border-t pt-2 text-sm">
-				<LaunchIngredientModal ingredients={getIngredients(recipe.ast)} />
+				{#if hasIngredients}
+					<LaunchIngredientModal {ingredients} />
+				{/if}
 
 				<LaunchCookingWizard recipe={recipeAST} />
 			</section>
