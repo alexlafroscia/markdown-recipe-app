@@ -16,7 +16,9 @@
 
 	let recipes = $derived(data.recipes);
 
-	let display = persisted<'grid' | 'list'>('display', 'list');
+	let display = persisted<'grid' | 'list'>('display', 'list', {
+		storage: 'session',
+	});
 </script>
 
 <header class="border-bg-2 mb-4 flex items-center justify-between border-b pb-2">
