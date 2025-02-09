@@ -2,6 +2,8 @@ import type { Image } from 'vault/mdast';
 import type { File, FilePath } from 'vault/file';
 import { find } from 'unist-util-find';
 
+import { base } from '$app/paths';
+
 export interface Recipe extends Pick<File, 'ast' | 'frontmatter'> {
 	/**
 	 * The user-facing name of the Recipe
@@ -12,7 +14,7 @@ export interface Recipe extends Pick<File, 'ast' | 'frontmatter'> {
 }
 
 export function makeUrl(recipe: Pick<Recipe, 'name'>): string {
-	return `/recipe/${recipe.name}`;
+	return base + `/recipe/${recipe.name}`;
 }
 
 export function makeRecipe(filePath: FilePath, file: File): Recipe {

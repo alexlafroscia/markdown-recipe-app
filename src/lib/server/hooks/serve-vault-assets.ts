@@ -1,8 +1,16 @@
 import type { Handle } from '@sveltejs/kit';
 import type { Asset } from 'vault/asset';
 
+import { base } from '$app/paths';
+
 function toFileName(url: URL) {
-	return decodeURIComponent(url.pathname.substring(1));
+	let { pathname } = url;
+
+	if (base) {
+		pathname = pathname.replace(base, '');
+	}
+
+	return decodeURIComponent(pathname.substring(1));
 }
 
 export const serveVaultAssets: Handle = async ({ event, resolve }) => {

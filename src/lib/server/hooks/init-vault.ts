@@ -3,6 +3,7 @@ import * as path from 'node:path';
 import type { Handle } from '@sveltejs/kit';
 import { Vault } from 'vault';
 
+import { base } from '$app/paths';
 import { VAULT_PATH } from '$env/static/private';
 
 import { setupProcessor } from '$lib/mdast/plugins';
@@ -22,11 +23,11 @@ const vault = await Vault.init({
 			}
 
 			// `.md` links within `Recipes` are navigable within the app
-			return `/recipe/${parsed.name}`;
+			return base + `/recipe/${parsed.name}`;
 		}
 
 		// Non-`.md` files within `Recipes` are images; resolve as static assets
-		return `/${internalPath}`;
+		return base + `/${internalPath}`;
 	},
 });
 
