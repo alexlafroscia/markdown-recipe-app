@@ -14,7 +14,7 @@
 
 <a class={['flex items-center gap-2', classValue]} href={makeUrl(recipe)}>
 	{#if recipe.image}
-		<img src={recipe.image.url} alt={recipe.image.alt} class="h-10 w-10 rounded" />
+		<img src={recipe.image.url} alt={recipe.image.alt} class="h-10 w-10 rounded object-cover" />
 	{:else}
 		<RecipeFallbackImage class="h-10 w-10 rounded" {recipe} />
 	{/if}
