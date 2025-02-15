@@ -20,7 +20,7 @@
 	let { children }: Props = $props();
 	let currentURL = $derived(page.url.pathname);
 
-	let recipeListURL = base ?? '/';
+	let recipeListURL = base + '/';
 </script>
 
 <svelte:head>
