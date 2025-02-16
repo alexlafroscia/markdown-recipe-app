@@ -31,7 +31,7 @@
 {#if ingredients && checkedState}
 	<Dialog
 		class={[
-			'min-w-half m-auto flex-col gap-2 rounded-lg p-4 shadow-2xl',
+			'min-w-half m-auto flex-col gap-2 rounded-lg p-4 text-base shadow-2xl',
 			dialogController.isOpen && 'flex',
 		]}
 		controller={dialogController}

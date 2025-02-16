@@ -26,6 +26,9 @@
 	Cook
 </Button>
 
-<Dialog class="min-w-half m-auto max-h-full rounded-lg shadow-2xl" controller={dialogController}>
+<Dialog
+	class="min-w-half m-auto max-h-full rounded-lg text-base shadow-2xl"
+	controller={dialogController}
+>
 	<CookingWizard {recipe} />
 </Dialog>
