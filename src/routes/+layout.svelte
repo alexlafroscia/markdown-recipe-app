@@ -25,7 +25,7 @@
 
 <svelte:head>
 	<!-- Light Mode: Flexoki Paper -->
-	<meta name="theme-color" content="#fffcf0" />
+	<meta name="theme-color" content="#fffcf0" media="(prefers-color-scheme: light)" />
 	<!-- Dark Mode: Flexoki Black -->
 	<meta name="theme-color" content="#100f0f" media="(prefers-color-scheme: dark)" />
 
