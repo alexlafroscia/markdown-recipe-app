@@ -30,7 +30,7 @@
 				<Frontmatter {frontmatter} />
 			</details>
 
-			<section class="border-bg m-2 mt-0 flex gap-2 border-t pt-2 text-sm">
+			<section class="border-bg m-2 mt-0 flex gap-2 border-t pt-2">
 				{#if hasIngredients}
 					<LaunchIngredientModal {ingredients} />
 				{/if}

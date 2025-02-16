@@ -18,6 +18,7 @@
 
 <Button
 	class="bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:bg-blue-100"
+	size="small"
 	disabled={dialogController.isOpen}
 	onclick={dialogController.showModal}
 >

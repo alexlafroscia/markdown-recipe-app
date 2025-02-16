@@ -20,6 +20,7 @@
 
 <Button
 	class="bg-green-100 text-green-800 hover:bg-green-200 disabled:bg-green-50"
+	size="small"
 	disabled={!ingredients}
 	onclick={dialogController.showModal}
 >
