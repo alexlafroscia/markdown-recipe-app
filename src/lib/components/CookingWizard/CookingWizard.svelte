@@ -28,10 +28,11 @@
 	let allIngredients = getIngredients(recipe);
 	let ingredientState = makeIngredientStateMap(allIngredients);
 
-	function extractDetails(page: Page): { ingredients: List | undefined; steps: RootContent[] } {
-		const ingredients = page.find(
-			(element): element is List => element.type === 'list' && !!element.data?.isIngredientList,
-		);
+	function extractDetails(page: Page): { ingredients: List; steps: RootContent[] } {
+		const ingredients =
+			page.find(
+				(element): element is List => element.type === 'list' && !!element.data?.isIngredientList,
+			) ?? allIngredients;
 		const steps = page.filter((element) => element.type !== 'list');
 
 		return {
@@ -130,7 +131,7 @@
 			{@const { ingredients, steps } = extractDetails(page)}
 
 			<div
-				class="flex w-full shrink-0 snap-start flex-col-reverse md:flex-row"
+				class="flex w-full shrink-0 snap-start flex-col-reverse overflow-y-auto md:flex-row md:overflow-y-visible"
 				use:inview={{
 					threshold: 0.5,
 				}}
@@ -138,13 +139,16 @@
 					visiblePageElement = event.detail.node;
 				}}
 			>
-				<div class={['min-w-1/3 p-4', ingredientsExpanded ? '' : 'hidden md:block']}>
-					{#if ingredients}
-						<IngredientList node={ingredients} checkedState={ingredientState} />
-					{/if}
+				<div
+					class={[
+						'shrink-0 p-4 md:w-1/3 md:overflow-y-auto',
+						ingredientsExpanded ? '' : 'hidden md:block',
+					]}
+				>
+					<IngredientList node={ingredients} checkedState={ingredientState} />
 				</div>
 
-				<div class="bg-bg flex-grow space-y-4 overflow-y-auto rounded-tl-lg p-4">
+				<div class="bg-bg flex-grow space-y-4 rounded-tl-lg p-4 md:overflow-y-auto">
 					{#each steps as node}
 						<RootContentComponent {node} />
 					{/each}

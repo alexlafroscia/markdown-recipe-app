@@ -1,4 +1,5 @@
-import type { Root, RootContent } from 'vault/mdast';
+import type { Root, RootContent, List } from 'vault/mdast';
+import { getSectionByHeader } from './get-section-by-header';
 
 export type Page = RootContent[];
 
@@ -8,6 +9,10 @@ function isPage(elements: RootContent[]): boolean {
 	});
 
 	return allValidChildren;
+}
+
+function isOrderedList(element: RootContent): element is List & { ordered: true } {
+	return (element.type === 'list' && element.ordered) ?? false;
 }
 
 export function getRecipePages(ast: Root): Page[] {
@@ -29,5 +34,20 @@ export function getRecipePages(ast: Root): Page[] {
 	}
 
 	// Only present valid pages
-	return sections.filter((section) => isPage(section));
+	let pages = sections.filter((section) => isPage(section));
+	if (pages.length > 0) {
+		return pages;
+	}
+
+	// If there are no sections, look for a numbered list under a reasonable
+	// header
+	section = getSectionByHeader(ast, 'Directions') ?? getSectionByHeader(ast, 'Steps') ?? [];
+
+	const list = section.find((element) => isOrderedList(element));
+
+	if (list) {
+		return list.children.map((element) => element.children);
+	}
+
+	return [];
 }
