@@ -14,7 +14,7 @@
 
 	let { ingredients }: Props = $props();
 
-	let checkedState = ingredients ? makeIngredientStateMap(ingredients) : undefined;
+	let checkedState = $derived(ingredients ? makeIngredientStateMap(ingredients) : undefined);
 	let dialogController = new DialogController();
 </script>
 

@@ -18,7 +18,7 @@
 
 	let numIngredients = $derived(ingredients.children.length);
 
-	let checkedState = makeIngredientStateMap(ingredients);
+	let checkedState = $derived(makeIngredientStateMap(ingredients));
 	let numChecked = $derived.by(() => {
 		return Array.from(checkedState.values()).reduce((acc, checked) => {
 			return acc + (checked ? 1 : 0);
