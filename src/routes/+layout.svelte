@@ -36,8 +36,7 @@
 
 <Sidebar.Provider>
 	<AppSidebar />
-	<main>
-		<Sidebar.Trigger />
+	<Sidebar.Inset>
 		{@render children?.()}
-	</main>
+	</Sidebar.Inset>
 </Sidebar.Provider>

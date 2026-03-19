@@ -6,6 +6,7 @@
 	import LaunchIngredientModal from '$lib/components/IngredientModal/Button.svelte';
 	import LaunchCookingWizard from '$lib/components/CookingWizard/Button.svelte';
 	import { getIngredients } from '$lib/mdast/utils/get-ingredients';
+	import AppHeader from '$lib/components/AppHeader.svelte';
 
 	let { data }: { data: PageData } = $props();
 
@@ -19,9 +20,7 @@
 </script>
 
 <div class="flex flex-col gap-4">
-	<header>
-		<h1 class="mb-2 text-2xl">{recipe.name}</h1>
-	</header>
+	<AppHeader title={recipe.name} />
 
 	{#if frontmatter.length > 0}
 		<div class="bg-bg-2 rounded">
