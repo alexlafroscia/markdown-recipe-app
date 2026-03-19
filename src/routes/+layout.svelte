@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { ModeWatcher } from 'mode-watcher';
 
 	import type { LayoutData } from './$types';
 
@@ -30,6 +31,8 @@
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
 	/>
 </svelte:head>
+
+<ModeWatcher />
 
 <Sidebar.Provider>
 	<AppSidebar />
