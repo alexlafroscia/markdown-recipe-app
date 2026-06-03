@@ -14,8 +14,8 @@ depends = ["check:*"]
 description = "Check formatting"
 run = "pnpm exec prettier --check ."
 
-[tasks."check:svelte"]
-description = "Run type-checking"
+[tasks."check:typecheck"]
+description = "Run type checking"
 run = "pnpm exec svelte-check --tsconfig ./tsconfig.json"
 
 [tasks.dev]
