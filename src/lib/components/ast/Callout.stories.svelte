@@ -68,24 +68,24 @@
     `;
 </script>
 
-<Story name="Default">
+<Story name="Default" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_CALLOUT)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Open">
+<Story name="Open" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_CALLOUT_OPEN)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Closed">
+<Story name="Closed" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_CALLOUT_CLOSED)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Types">
+<Story name="Types" asChild>
 	<Root node={parse(CALLOUT_TYPES)} />
 </Story>

@@ -9,7 +9,7 @@
 	});
 </script>
 
-<Story name="Card With Image">
+<Story name="Card With Image" asChild>
 	<RecipeCard
 		recipe={{
 			name: 'Cookies',

@@ -25,7 +25,7 @@
     `);
 </script>
 
-<Story name="Recipe with separated steps">
+<Story name="Recipe with separated steps" asChild>
 	<FullSizeContainer>
 		<CookingWizard recipe={ast} />
 	</FullSizeContainer>

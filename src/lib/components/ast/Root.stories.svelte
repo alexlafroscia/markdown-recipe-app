@@ -35,19 +35,19 @@
     `;
 </script>
 
-<Story name="Heading">
+<Story name="Heading" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_HEADING)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Paragraph">
+<Story name="Paragraph" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_PARAGRAPH)} />
 	</DomPrinter>
 </Story>
 
-<Story name="Blockquote">
+<Story name="Blockquote" asChild>
 	<DomPrinter>
 		<Root node={parse(WITH_BLOCKQUOTE)} />
 	</DomPrinter>

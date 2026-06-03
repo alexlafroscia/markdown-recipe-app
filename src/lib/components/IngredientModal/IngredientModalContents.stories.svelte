@@ -21,6 +21,6 @@
 	const ingredients = getIngredients(ast)!;
 </script>
 
-<Story name="Default">
+<Story name="Default" asChild>
 	<IngredientModalContents {ingredients} />
 </Story>
