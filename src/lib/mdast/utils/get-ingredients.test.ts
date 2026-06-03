@@ -14,7 +14,7 @@ test('when there are no ingredients', () => {
 
 	const ingredients = getIngredients(ast);
 
-	expect(ingredients).toBeUndefined();
+	expect(ingredients.children).toHaveLength(0);
 });
 
 test('when there are ingredients in recipe sections', () => {
@@ -32,8 +32,7 @@ test('when there are ingredients in recipe sections', () => {
 
 	const ingredients = getIngredients(ast);
 
-	expect(ingredients).toBeDefined();
-	expect(ingredients?.children).toHaveLength(2);
+	expect(ingredients.children).toHaveLength(2);
 });
 
 test('when there are ingredients under a heading', () => {
@@ -49,6 +48,5 @@ test('when there are ingredients under a heading', () => {
 
 	const ingredients = getIngredients(ast);
 
-	expect(ingredients).toBeDefined();
-	expect(ingredients?.children).toHaveLength(2);
+	expect(ingredients.children).toHaveLength(2);
 });
