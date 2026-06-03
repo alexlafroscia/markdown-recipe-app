@@ -2,9 +2,9 @@
 
 @import './css/flexoki.css' layer(utilities);
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
-@import "@fontsource-variable/inter";
+@import '@fontsource-variable/inter';
 
 /*
   ---break---
@@ -356,7 +356,8 @@
   ---break---
 */
 @custom-variant data-open {
-	&:where([data-state="open"]), &:where([data-open]:not([data-open="false"])) {
+	&:where([data-state='open']),
+	&:where([data-open]:not([data-open='false'])) {
 		@slot;
 	}
 }
@@ -364,7 +365,8 @@
   ---break---
 */
 @custom-variant data-closed {
-	&:where([data-state="closed"]), &:where([data-closed]:not([data-closed="false"])) {
+	&:where([data-state='closed']),
+	&:where([data-closed]:not([data-closed='false'])) {
 		@slot;
 	}
 }
@@ -372,7 +374,8 @@
   ---break---
 */
 @custom-variant data-checked {
-	&:where([data-state="checked"]), &:where([data-checked]:not([data-checked="false"])) {
+	&:where([data-state='checked']),
+	&:where([data-checked]:not([data-checked='false'])) {
 		@slot;
 	}
 }
@@ -380,7 +383,8 @@
   ---break---
 */
 @custom-variant data-unchecked {
-	&:where([data-state="unchecked"]), &:where([data-unchecked]:not([data-unchecked="false"])) {
+	&:where([data-state='unchecked']),
+	&:where([data-unchecked]:not([data-unchecked='false'])) {
 		@slot;
 	}
 }
@@ -396,7 +400,8 @@
   ---break---
 */
 @custom-variant data-disabled {
-	&:where([data-disabled="true"]), &:where([data-disabled]:not([data-disabled="false"])) {
+	&:where([data-disabled='true']),
+	&:where([data-disabled]:not([data-disabled='false'])) {
 		@slot;
 	}
 }
@@ -404,7 +409,8 @@
   ---break---
 */
 @custom-variant data-active {
-	&:where([data-state="active"]), &:where([data-active]:not([data-active="false"])) {
+	&:where([data-state='active']),
+	&:where([data-active]:not([data-active='false'])) {
 		@slot;
 	}
 }
@@ -412,7 +418,7 @@
   ---break---
 */
 @custom-variant data-horizontal {
-	&:where([data-orientation="horizontal"]) {
+	&:where([data-orientation='horizontal']) {
 		@slot;
 	}
 }
@@ -420,7 +426,7 @@
   ---break---
 */
 @custom-variant data-vertical {
-	&:where([data-orientation="vertical"]) {
+	&:where([data-orientation='vertical']) {
 		@slot;
 	}
 }
