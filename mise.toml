@@ -1,3 +1,13 @@
 [tools]
 node = "24.14.0"
 yarn = "4.6.0"
+
+[deps.yarn]
+auto = true 
+
+[deps.sveltekit-sync]
+auto = true
+outputs = [".svelte-kit"]
+run = "yarn svelte-kit sync"
+depends = ["yarn"]
+description = "Generate SvelteKit type definitions"

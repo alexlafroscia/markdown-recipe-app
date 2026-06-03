@@ -29,6 +29,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup mise
         uses: jdx/mise-action@v2
+        with:
+          experimental: true
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -44,7 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-sveltekit-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: yarn install
+        run: mise deps
       - name: Build Assets
         run: yarn build
       - name: Upload artifact
