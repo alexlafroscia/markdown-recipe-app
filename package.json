@@ -36,6 +36,8 @@
 		"@sveltejs/kit": "^2.55.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.0.1",
+		"@types/dedent": "^0.7.2",
+		"@types/mdast": "^4.0.4",
 		"@types/node": "^22.10.2",
 		"bits-ui": "^2.16.3",
 		"clsx": "^2.1.1",
