@@ -1,10 +1,10 @@
 [tools]
 node = "24.14.0"
-yarn = "4.6.0"
+pnpm = "11.5.1"
 
 [tasks.build]
 description = "Build the application"
-run = "yarn exec vite build"
+run = "pnpm exec vite build"
 
 [tasks.check]
 description = "Run all static checks"
@@ -12,38 +12,38 @@ depends = ["check:*"]
 
 [tasks."check:format"]
 description = "Check formatting"
-run = "yarn exec prettier --check ."
+run = "pnpm exec prettier --check ."
 
 [tasks."check:svelte"]
 description = "Run type-checking"
-run = "yarn exec svelte-check --tsconfig ./tsconfig.json"
+run = "pnpm exec svelte-check --tsconfig ./tsconfig.json"
 
 [tasks.dev]
 description = "Run the local development server"
-run = "yarn exec vite dev"
+run = "pnpm exec vite dev"
 
 [tasks.format]
 description = "Fix formatting issues"
-run = "yarn exec prettier --write ."
+run = "pnpm exec prettier --write ."
 
 [tasks.storybook]
 description = "Start the storybook dev server"
-run = "yarn exec storybook dev -p 6006"
+run = "pnpm exec storybook dev -p 6006"
 
 [tasks."test:unit"]
 description = "Run unit tests"
-run = "yarn exec vitest"
+run = "pnpm exec vitest"
 
 [tasks.test]
 description = "Run all tests"
 depends = ["test:*"]
 
-[deps.yarn]
+[deps.pnpm]
 auto = true 
 
 [deps.sveltekit-sync]
 auto = true
 outputs = [".svelte-kit"]
-run = "yarn svelte-kit sync"
-depends = ["yarn"]
+run = "pnpm exec svelte-kit sync"
+depends = ["pnpm"]
 description = "Generate SvelteKit type definitions"
