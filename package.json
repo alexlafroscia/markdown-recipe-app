@@ -33,7 +33,7 @@
 		"@storybook/sveltekit": "^8.5.2",
 		"@storybook/test": "^8.5.2",
 		"@sveltejs/adapter-static": "^3.0.8",
-		"@sveltejs/kit": "^2.55.0",
+		"@sveltejs/kit": "^2.61.1",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.0.1",
 		"@types/dedent": "^0.7.2",
