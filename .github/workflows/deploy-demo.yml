@@ -48,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: mise deps
       - name: Build Assets
-        run: yarn build
+        run: mise run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

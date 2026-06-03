@@ -2,6 +2,42 @@
 node = "24.14.0"
 yarn = "4.6.0"
 
+[tasks.build]
+description = "Build the application"
+run = "yarn exec vite build"
+
+[tasks.check]
+description = "Run all static checks"
+depends = ["check:*"]
+
+[tasks."check:format"]
+description = "Check formatting"
+run = "yarn exec prettier --check ."
+
+[tasks."check:svelte"]
+description = "Run type-checking"
+run = "yarn exec svelte-check --tsconfig ./tsconfig.json"
+
+[tasks.dev]
+description = "Run the local development server"
+run = "yarn exec vite dev"
+
+[tasks.format]
+description = "Fix formatting issues"
+run = "yarn exec prettier --write ."
+
+[tasks.storybook]
+description = "Start the storybook dev server"
+run = "yarn exec storybook dev -p 6006"
+
+[tasks."test:unit"]
+description = "Run unit tests"
+run = "yarn exec vitest"
+
+[tasks.test]
+description = "Run all tests"
+depends = ["test:*"]
+
 [deps.yarn]
 auto = true 
 
