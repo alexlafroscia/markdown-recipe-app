@@ -5,6 +5,8 @@ pnpm = "11.5.1"
 [tasks.build]
 description = "Build the application"
 run = "pnpm exec vite build"
+sources = ["src/*", "package.json", "svelte.config.js"]
+outputs = ["build"]
 
 [tasks.check]
 description = "Run all static checks"
