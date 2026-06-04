@@ -36,7 +36,9 @@ run = "pnpm exec vitest"
 
 [tasks.test]
 description = "Run all tests"
-depends = ["test:*"]
+run = [
+  { task = "test:unit", args = ["--run"] }
+]
 
 [deps.pnpm]
 auto = true 
