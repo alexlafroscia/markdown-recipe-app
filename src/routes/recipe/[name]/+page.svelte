@@ -19,11 +19,11 @@
 	let hasIngredients = $derived(ingredients.children.length > 0);
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col items-center gap-4 mb-4">
 	<AppHeader title={recipe.name} />
 
 	{#if frontmatter.length > 0}
-		<div class="bg-bg-2 rounded">
+		<div class="bg-bg-2 mx-4 max-w-[65ch] rounded">
 			<details open>
 				<summary class="p-2">Properties</summary>
 				<Frontmatter {frontmatter} />
@@ -39,7 +39,7 @@
 		</div>
 	{/if}
 
-	<div class="prose prose-li:marker:text-current prose-hr:border-current">
+	<div class="prose prose-li:marker:text-current prose-hr:border-current mx-4">
 		<Root node={recipeAST} />
 	</div>
 </div>
@@ -50,5 +50,6 @@
 
 		--tw-prose-headings: var(--flexoki-tx);
 		--tw-prose-body: var(--flexoki-tx);
+		--tw-prose-links: var(--flexoki-cy);
 	}
 </style>

@@ -43,3 +43,10 @@
 <dialog class={classValue} bind:this={controller.node}>
 	{@render children()}
 </dialog>
+
+<style>
+	dialog::backdrop {
+		background: rgb(0 0 0 / 0.5);
+		backdrop-filter: blur(2px);
+	}
+</style>

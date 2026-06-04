@@ -1,10 +1,10 @@
 <script lang="ts">
-	import CookingPotIcon from 'lucide-svelte/icons/cooking-pot';
+	import CookingPotIcon from '@lucide/svelte/icons/cooking-pot';
 
-	import Button from '$lib/components/Button.svelte';
-	import Dialog, { DialogController } from '$lib/components/Dialog.svelte';
+	import * as Drawer from '$lib/components/ui/drawer';
 	import type { getIngredients } from '$lib/mdast/utils/get-ingredients';
-	import { makeIngredientStateMap } from '$lib/ingredients';
+	import { cn } from '$lib/utils';
+	import { buttonVariants } from '$lib/components/ui/button';
 
 	import IngredientModalContents from './IngredientModalContents.svelte';
 
@@ -14,29 +14,27 @@
 
 	let { ingredients }: Props = $props();
 
-	let checkedState = $derived(ingredients ? makeIngredientStateMap(ingredients) : undefined);
-	let dialogController = new DialogController();
+	let contents = $state<IngredientModalContents>();
+
+	function handleOpenStateChange(open: boolean) {
+		if (!open) {
+			contents?.reset();
+		}
+	}
 </script>
 
-<Button
-	class="bg-green-100 text-green-800 hover:bg-green-200 disabled:bg-green-50"
-	size="small"
-	disabled={!ingredients}
-	onclick={dialogController.showModal}
->
-	<CookingPotIcon class="h-4 w-4" />
-
-	Ingredients
-</Button>
-
-{#if ingredients && checkedState}
-	<Dialog
-		class={[
-			'min-w-half m-auto flex-col gap-2 rounded-lg p-4 text-base shadow-2xl',
-			dialogController.isOpen && 'flex',
-		]}
-		controller={dialogController}
+<Drawer.Root onOpenChange={handleOpenStateChange}>
+	<Drawer.Trigger
+		class={cn(
+			'gap-1.5 bg-green-100 text-green-800 hover:bg-green-200 disabled:bg-green-50 dark:bg-green-950 dark:text-green-200 dark:hover:bg-green-900',
+			buttonVariants({ size: 'sm', variant: 'secondary' }),
+		)}
 	>
-		<IngredientModalContents {ingredients} />
-	</Dialog>
-{/if}
+		<CookingPotIcon class="h-4 w-4" />
+		Ingredients
+	</Drawer.Trigger>
+
+	<Drawer.Content>
+		<IngredientModalContents bind:this={contents} {ingredients} />
+	</Drawer.Content>
+</Drawer.Root>

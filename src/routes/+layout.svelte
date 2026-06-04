@@ -8,6 +8,7 @@
 
 	import type { LayoutData } from './$types';
 
+	import { Toaster } from '$lib/components/ui/sonner';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AppSidebar from '$lib/components/AppSidebar.svelte';
 
@@ -33,6 +34,7 @@
 </svelte:head>
 
 <ModeWatcher />
+<Toaster />
 
 <Sidebar.Provider>
 	<AppSidebar />

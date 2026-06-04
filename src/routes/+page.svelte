@@ -2,12 +2,13 @@
 	import { persisted } from 'svelte-persisted-store';
 	import type { PageData } from './$types';
 
-	import GridIcon from 'lucide-svelte/icons/layout-grid';
-	import ListIcon from 'lucide-svelte/icons/list';
+	import GridIcon from '@lucide/svelte/icons/layout-grid';
+	import ListIcon from '@lucide/svelte/icons/list';
 
 	import AppHeader from '$lib/components/AppHeader.svelte';
 	import RecipeCard from '$lib/components/RecipeCard.svelte';
 	import RecipeListItem from '$lib/components/RecipeListItem.svelte';
+	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 
 	interface Props {
 		data: PageData;
@@ -23,37 +24,34 @@
 </script>
 
 <AppHeader title="Recipes">
-	<div class="divide-x-ui-2 flex divide-solid rounded shadow">
-		<button
-			class={['hover:bg-ui-2 flex rounded-l p-2', $display === 'list' ? 'bg-ui-3' : 'bg-ui']}
-			onclick={() => {
-				$display = 'list';
-			}}
-		>
+	<ToggleGroup.Root
+		type="single"
+		value={$display}
+		onValueChange={(v) => {
+			if (v) $display = v as 'grid' | 'list';
+		}}
+		size="sm"
+		variant="outline"
+	>
+		<ToggleGroup.Item value="list" aria-label="List view">
 			<ListIcon class="h-4 w-4" />
-		</button>
-
-		<button
-			class={['hover:bg-ui-2 flex rounded-r p-2', $display === 'grid' ? 'bg-ui-3' : 'bg-ui']}
-			onclick={() => {
-				$display = 'grid';
-			}}
-		>
+		</ToggleGroup.Item>
+		<ToggleGroup.Item value="grid" aria-label="Grid view">
 			<GridIcon class="h-4 w-4" />
-		</button>
-	</div>
+		</ToggleGroup.Item>
+	</ToggleGroup.Root>
 </AppHeader>
 
 {#if $display === 'grid'}
-	<div class="my-4 grid grid-cols-3 gap-4 px-4">
+	<div class="my-4 grid grid-cols-2 gap-3 px-4 sm:grid-cols-3 lg:grid-cols-4">
 		{#each recipes as recipe}
 			<RecipeCard {recipe} />
 		{/each}
 	</div>
 {:else}
-	<ul class="divide-bg-2 space-y-2 divide-y px-4">
+	<ul class="flex flex-col px-2 py-1">
 		{#each recipes as recipe}
-			<li class="block pb-2">
+			<li>
 				<RecipeListItem {recipe} />
 			</li>
 		{/each}

@@ -2,18 +2,18 @@
 	import type { Root, RootContent, List } from 'vault/mdast';
 	import { inview } from 'svelte-inview';
 
-	import CircleXIcon from 'lucide-svelte/icons/circle-x';
-	import CookingPotIcon from 'lucide-svelte/icons/cooking-pot';
-	import MaximizeIcon from 'lucide-svelte/icons/maximize-2';
-	import MinimizeIcon from 'lucide-svelte/icons/minimize-2';
-	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import CircleXIcon from '@lucide/svelte/icons/circle-x';
+	import CookingPotIcon from '@lucide/svelte/icons/cooking-pot';
+	import MaximizeIcon from '@lucide/svelte/icons/maximize-2';
+	import MinimizeIcon from '@lucide/svelte/icons/minimize-2';
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 
 	import { type Page, getRecipePages } from '$lib/mdast/utils/get-recipe-pages';
 	import { makeIngredientStateMap } from '$lib/ingredients';
 	import { getIngredients } from '$lib/mdast/utils/get-ingredients';
 
-	import Button from '$lib/components/Button.svelte';
+	import { Button } from '$lib/components/ui/button';
 	import RootContentComponent from '$lib/components/ast/RootContent.svelte';
 	import IngredientList from '$lib/components/recipe-ast/IngredientList.svelte';
 	import { FullscreenController } from '$lib/actions/fullscreen.svelte';
@@ -23,10 +23,10 @@
 	}
 
 	let { recipe }: Props = $props();
-	let pages = getRecipePages(recipe);
+	let pages = $derived(getRecipePages(recipe));
 
-	let allIngredients = getIngredients(recipe);
-	let ingredientState = makeIngredientStateMap(allIngredients);
+	let allIngredients = $derived(getIngredients(recipe));
+	let ingredientState = $derived(makeIngredientStateMap(allIngredients));
 
 	function extractDetails(page: Page): { ingredients: List; steps: RootContent[] } {
 		const ingredients =
@@ -64,11 +64,13 @@
 	}
 </script>
 
-<div class="bg-bg-2 flex max-h-screen max-w-4xl flex-col" use:fullscreen.attach>
-	<header class="text-tx flex items-center justify-between p-2">
+<div class="bg-card flex max-h-screen max-w-4xl flex-col" use:fullscreen.attach>
+	<header class="flex items-center justify-between border-b p-2">
 		<div>
 			<Button
-				class={['bg-ui hover:bg-ui-2 md:hidden', ingredientsExpanded ? 'bg-ui-3' : 'bg-ui']}
+				variant={ingredientsExpanded ? 'secondary' : 'ghost'}
+				size="icon-sm"
+				class="md:hidden"
 				onclick={() => {
 					ingredientsExpanded = !ingredientsExpanded;
 				}}
@@ -77,9 +79,10 @@
 			</Button>
 		</div>
 
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-1">
 			<Button
-				class="bg-ui hover:bg-ui-2 disabled:text-tx-2 disabled:hover:bg-ui"
+				variant="ghost"
+				size="icon-sm"
 				disabled={!previousPageElement}
 				onclick={() => {
 					scrollIntoView(previousPageElement);
@@ -88,12 +91,13 @@
 				<ArrowLeft class="h-5 w-5" />
 			</Button>
 
-			<span>
+			<span class="text-muted-foreground min-w-12 text-center text-sm">
 				{visiblePageIndex} / {pages.length}
 			</span>
 
 			<Button
-				class="bg-ui hover:bg-ui-2 disabled:text-tx-2 disabled:hover:bg-ui"
+				variant="ghost"
+				size="icon-sm"
 				disabled={!nextPageElement}
 				onclick={() => {
 					scrollIntoView(nextPageElement);
@@ -103,9 +107,10 @@
 			</Button>
 		</div>
 
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-1">
 			<Button
-				class="bg-ui hover:bg-ui-2"
+				variant="ghost"
+				size="icon-sm"
 				onclick={() => {
 					fullscreen.toggle();
 				}}
@@ -119,7 +124,7 @@
 
 			{#if !fullscreen.enabled}
 				<form class="contents">
-					<Button formmethod="dialog" class="bg-ui hover:bg-ui-2">
+					<Button type="submit" formmethod="dialog" variant="ghost" size="icon-sm">
 						<CircleXIcon class="h-5 w-5" />
 					</Button>
 				</form>
@@ -148,7 +153,7 @@
 					<IngredientList node={ingredients} checkedState={ingredientState} />
 				</div>
 
-				<div class="bg-bg flex-grow space-y-4 rounded-tl-lg p-4 md:overflow-y-auto">
+				<div class="bg-background flex-grow space-y-4 rounded-tl-lg p-4 md:overflow-y-auto">
 					{#each steps as node}
 						<RootContentComponent {node} />
 					{/each}

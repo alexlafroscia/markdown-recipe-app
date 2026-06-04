@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-	import ChefHatIcon from 'lucide-svelte/icons/chef-hat';
+	import ChefHatIcon from '@lucide/svelte/icons/chef-hat';
 
 	let currentURL = $derived(page.url.pathname);
 

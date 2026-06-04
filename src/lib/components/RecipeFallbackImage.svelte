@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { clsx, type ClassValue } from 'clsx';
-	import ChefHatIcon from 'lucide-svelte/icons/chef-hat';
+	import ChefHatIcon from '@lucide/svelte/icons/chef-hat';
 	import { hash } from '$lib/string';
 
 	interface Recipe {

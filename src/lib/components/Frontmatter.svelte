@@ -3,6 +3,8 @@
 </script>
 
 <script lang="ts">
+	import { Badge } from '$lib/components/ui/badge';
+
 	type StringValue = {
 		type: 'string';
 		value: string;
@@ -117,13 +119,11 @@
 		<dt class="border-bg border-r">{key}</dt>
 		<dd>
 			{#if Array.isArray(value)}
-				<ul>
-					<li>
-						{#each value as item}
-							{@render renderValue(item)}
-						{/each}
-					</li>
-				</ul>
+				<div class="flex flex-wrap gap-1">
+					{#each value as item}
+						<Badge variant="secondary">{@render renderValue(item)}</Badge>
+					{/each}
+				</div>
 			{:else}
 				{@render renderValue(value)}
 			{/if}

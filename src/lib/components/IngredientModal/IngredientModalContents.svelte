@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { List } from 'vault/mdast';
-	import { task, timeout } from '@sheepdog/svelte';
+	import { task } from '@sheepdog/svelte';
+	import { toast } from 'svelte-sonner';
 
-	import CircleXIcon from 'lucide-svelte/icons/circle-x';
-	import ClipboardCopyIcon from 'lucide-svelte/icons/clipboard-copy';
-	import CheckIcon from 'lucide-svelte/icons/check';
+	import ClipboardCopyIcon from '@lucide/svelte/icons/clipboard-copy';
 
 	import { getText } from '$lib/mdast/utils/get-text';
 	import IngredientList from '$lib/components/recipe-ast/IngredientList.svelte';
 	import { makeIngredientStateMap } from '$lib/ingredients';
+	import { Button } from '$lib/components/ui/button';
+	import * as Drawer from '$lib/components/ui/drawer';
 
 	interface Props {
 		ingredients: List;
@@ -25,7 +26,6 @@
 		}, 0);
 	});
 
-	let showCopySuccessMessage = $state(false);
 	const copyRemaining = task.restart(async function () {
 		const uncheckedListItems = ingredients.children
 			.filter((listItem) => {
@@ -35,53 +35,45 @@
 			})
 			.map((listItem) => {
 				return getText(listItem);
-			})
-			.join('\n');
+			});
+		const uncheckedListItemsText = uncheckedListItems.join('\n');
 
-		await navigator.clipboard.writeText(uncheckedListItems);
+		await navigator.clipboard.writeText(uncheckedListItemsText);
 
-		showCopySuccessMessage = true;
-
-		await timeout(1_000);
-
-		showCopySuccessMessage = false;
+		toast.success(`${uncheckedListItems.length} ingredients copied successfully`);
 	});
+
+	/**
+	 * Reset the ingredient state so that they're all un-checked
+	 */
+	export function reset() {
+		for (const key of checkedState.keys()) {
+			checkedState.set(key, false);
+		}
+	}
 </script>
 
-<form class="flex flex-row-reverse items-center gap-4">
-	<button formmethod="dialog" class="flex gap-2 rounded-sm bg-slate-100 p-2">
-		<CircleXIcon />
-
-		Close
-	</button>
-
-	<button
-		class="flex gap-2 rounded-sm bg-slate-100 p-2 disabled:bg-slate-50"
-		disabled={numChecked === numIngredients}
-		onclick={(event) => {
-			event.stopPropagation();
-
-			copyRemaining.perform();
-		}}
-	>
-		{#if showCopySuccessMessage}
-			<CheckIcon class="text-green-500" />
-		{:else}
-			<ClipboardCopyIcon />
-		{/if}
-
-		Copy the Rest
-	</button>
-
-	<p>
-		{numChecked} / {numIngredients}
-	</p>
-</form>
-
-<div class="overflow-y-auto bg-white">
+<div class="overflow-y-auto px-4">
 	<div class="flex flex-col">
-		<div class="prose overflow-y-auto">
+		<div class="overflow-y-auto">
 			<IngredientList node={ingredients} {checkedState} />
 		</div>
 	</div>
 </div>
+
+<Drawer.Footer>
+	<p class="text-muted-foreground text-center">
+		{numChecked} / {numIngredients} in stock
+	</p>
+
+	<Button
+		disabled={numChecked === numIngredients}
+		onclick={(event) => {
+			event.stopPropagation();
+			copyRemaining.perform();
+		}}
+	>
+		<ClipboardCopyIcon />
+		Copy the Rest
+	</Button>
+</Drawer.Footer>

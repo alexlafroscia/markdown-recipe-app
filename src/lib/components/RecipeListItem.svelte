@@ -12,7 +12,13 @@
 	let { recipe, class: classValue }: Props = $props();
 </script>
 
-<a class={['flex items-center gap-2', classValue]} href={makeUrl(recipe)}>
+<a
+	class={[
+		'flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-muted',
+		classValue,
+	]}
+	href={makeUrl(recipe)}
+>
 	{#if recipe.image}
 		<img src={recipe.image.url} alt={recipe.image.alt} class="h-10 w-10 rounded object-cover" />
 	{:else}
