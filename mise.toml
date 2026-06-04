@@ -47,3 +47,10 @@ outputs = [".svelte-kit"]
 run = "pnpm exec svelte-kit sync"
 depends = ["pnpm"]
 description = "Generate SvelteKit type definitions"
+
+[deps.husky]
+auto = true
+outputs = [".husky/_"]
+run = "pnpm exec husky"
+depends = ["pnpm"]
+description = "Install Husky git hooks"
